@@ -11,6 +11,7 @@ from keras.datasets import mnist
 
 
 
+
 """ 
 Même programme que précédemment, sauf que :
 * on enferme toute la partie tf dans une classe "Modèle" avec les 3 fameuses méthodes .fit() .validate() .predict()
