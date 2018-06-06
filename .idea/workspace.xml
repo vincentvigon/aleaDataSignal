@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="" />
+    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="C_saveRestore.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
+      <file leaf-file-name="C_saveRestore.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="198">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -32,7 +34,7 @@
         </entry>
       </file>
       <file leaf-file-name="memo" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/memo">
+        <entry file="file://$PROJECT_DIR$/memo">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
@@ -41,12 +43,26 @@
         </entry>
       </file>
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/.gitignore">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toto.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toto" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deeplearning/toto">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="variable_scope.py" pinned="false" current-in-tab="false">
@@ -58,19 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="variables.py" pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/tensorflow/python/ops/variables.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20718">
-              <caret line="1165" column="4" selection-start-line="1165" selection-start-column="4" selection-end-line="1165" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="B_MNIST.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
+        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
+            <state relative-caret-position="864">
               <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="e#2#20#0" expanded="true" />
@@ -80,10 +87,10 @@
         </entry>
       </file>
       <file leaf-file-name="A_dataDealer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
+        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#1#19#0" expanded="true" />
               </folding>
@@ -92,7 +99,7 @@
         </entry>
       </file>
       <file leaf-file-name="A_ridge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp10_ridge/A_ridge.py">
+        <entry file="file://$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1764">
               <caret line="98" column="47" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
@@ -101,9 +108,9 @@
         </entry>
       </file>
       <file leaf-file-name="Hat_TwoConvLayer_28.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
+        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
+            <state relative-caret-position="1224">
               <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
               <folding>
                 <element signature="e#3#21#0" expanded="true" />
@@ -117,8 +124,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -132,6 +139,9 @@
       <replace>,</replace>
       <replace>`</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -161,13 +171,14 @@
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py" />
-        <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/memo" />
         <option value="$PROJECT_DIR$/data_analysis/D12_GLM/D_12_GLM.ipynb" />
         <option value="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" />
-        <option value="$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py" />
-        <option value="$PROJECT_DIR$/../aleaDataSignal/.gitignore" />
-        <option value="$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
+        <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py" />
+        <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
+        <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/deeplearning/private/toto.py" />
       </list>
     </option>
   </component>
@@ -185,28 +196,42 @@
     <option name="width" value="1920" />
     <option name="height" value="1053" />
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="aleatDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
               <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="aleatDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+              <item name="alea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
               <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
               <item name="deeplearning" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+              <item name="deeplearning" type="462c0819:PsiDirectoryNode" />
+              <item name="private" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,7 +239,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -387,6 +412,14 @@
       <option name="presentableId" value="Default" />
       <updated>1526286083515</updated>
     </task>
+    <task id="LOCAL-00001" summary="rajout d'un espace (test)">
+      <created>1528318079056</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528318079056</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -394,26 +427,26 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32238805" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.19800995" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24676616" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16875" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32636815" />
       <window_info anchor="right" id="SciView" order="3" weight="0.1953125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32636815" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,64 +458,54 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rajout d'un espace (test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="rajout d'un espace (test)" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/generate_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1908">
-          <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/D_12_GLM.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/generate_data.py">
+    <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N04_plusDeLois.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N04_plusDeLois.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/F_TCL.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/F_TCL.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="33" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N06_TCL_intervalConfiance_student.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N06_TCL_intervalConfiance_student.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N04_plusDeLois.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N04_plusDeLois.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N02_histogramme_densite.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N02_histogramme_densite.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/E_scipyStat.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/E_scipyStat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="120" lean-forward="true" selection-start-line="104" selection-start-column="4" selection-end-line="120" />
@@ -504,49 +527,49 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aleat/N01_numpy_LFGN.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N00_python_de_base.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N00_python_de_base.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/F_TCL.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/F_TCL.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/C_histogramme.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/C_histogramme.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP02_matplotlib_histogramme/A_plot.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP02_matplotlib_histogramme/A_plot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="75" column="16" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="75" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP02_matplotlib_histogramme/B_loiForte_graphique.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP02_matplotlib_histogramme/B_loiForte_graphique.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="25" column="28" lean-forward="true" selection-start-line="23" selection-end-line="25" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP02_matplotlib_histogramme/C_histogramme.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP02_matplotlib_histogramme/C_histogramme.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="928">
           <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP02_matplotlib_histogramme/D_histo_densite.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP02_matplotlib_histogramme/D_histo_densite.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
           <caret line="73" column="52" lean-forward="true" selection-start-line="53" selection-end-line="73" selection-end-column="52" />
@@ -561,21 +584,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aleat/N01_numpy_LFGN.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N00_python_de_base.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N00_python_de_base.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/F_TCL.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/F_TCL.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/TP_02_histogramme_TCL/E_scipyStat.py">
+    <entry file="file://$PROJECT_DIR$/alea/TP_02_histogramme_TCL/E_scipyStat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
           <caret line="120" selection-start-line="104" selection-start-column="4" selection-end-line="120" />
@@ -589,21 +612,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N06_TCL_intervalConfiance_student.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N06_TCL_intervalConfiance_student.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N04_plusDeLois.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N04_plusDeLois.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/alea/N02_histogramme_densite.ipynb">
+    <entry file="file://$PROJECT_DIR$/alea/N02_histogramme_densite.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="20" />
@@ -612,14 +635,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/D12_GLM/D_12_GLM.ipynb" />
     <entry file="file://$PROJECT_DIR$/data_analysis/D_12_GLM.ipynb" />
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/data/bacteria_grouped_y.csv">
+    <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/data/bacteria_grouped_y.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/generate_data.py">
+    <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/generate_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="150" selection-start-line="150" selection-end-line="150" />
@@ -663,7 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp10_ridge/A_ridge.py">
+    <entry file="file://$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
           <caret line="98" column="47" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
@@ -678,9 +701,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/save/.index" />
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
+    <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
+        <state relative-caret-position="1224">
           <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
           <folding>
             <element signature="e#3#21#0" expanded="true" />
@@ -688,33 +711,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D12_GLM/D_12_GLM.ipynb">
+    <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/D_12_GLM.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/data_analysis/D_10_LinearModel/linearModel.ipynb">
+    <entry file="file://$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toto">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/memo">
+    <entry file="file://$PROJECT_DIR$/memo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
+    <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
+        <state relative-caret-position="864">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="e#2#20#0" expanded="true" />
@@ -722,30 +742,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
+    <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#1#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/.gitignore">
+    <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../aleaDataSignal/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alea/N01_numpy.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deeplearning/toto">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
