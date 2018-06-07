@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/deeplearning/private/toto.py" beforeDir="false" afterPath="$PROJECT_DIR$/deeplearning/private/toto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/.ipynb_checkpoints/linearModel-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/.ipynb_checkpoints/linearModel-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,8 +55,8 @@
       <file leaf-file-name="toto.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="18">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -415,12 +416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528358096662</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="relecture Mag/Laurent">
+      <created>1528359319636</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528359319636</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.24121211" />
@@ -780,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="18">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
