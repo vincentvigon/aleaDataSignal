@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/aleaDataSignal.iml" filepath="$PROJECT_DIR$/.idea/aleaDataSignal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/aleatDataSignal.iml" filepath="$PROJECT_DIR$/.idea/aleatDataSignal.iml" />
     </modules>
   </component>
 </project>
