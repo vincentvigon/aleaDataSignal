@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +49,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toto.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="toto.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="linearModel.ipynb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="1" />
             </state>
           </provider>
         </entry>
@@ -94,15 +101,6 @@
               <folding>
                 <element signature="e#1#19#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A_ridge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1764">
-              <caret line="98" column="47" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -173,12 +171,12 @@
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py" />
         <option value="$PROJECT_DIR$/memo" />
         <option value="$PROJECT_DIR$/data_analysis/D12_GLM/D_12_GLM.ipynb" />
-        <option value="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/deeplearning/private/toto.py" />
+        <option value="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" />
       </list>
     </option>
   </component>
@@ -211,22 +209,6 @@
             <path>
               <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
               <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
-              <item name="alea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
-              <item name="deeplearning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
-              <item name="deeplearning" type="462c0819:PsiDirectoryNode" />
-              <item name="private" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -419,12 +401,25 @@
       <option name="project" value="LOCAL" />
       <updated>1528318079056</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test gitignore">
+      <created>1528318313786</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528318313786</updated>
+    </task>
+    <task id="LOCAL-00003" summary="suppression &lt;center&gt;">
+      <created>1528318504864</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528318504864</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.19800995" />
@@ -460,7 +455,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rajout d'un espace (test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="rajout d'un espace (test)" />
+    <MESSAGE value="test gitignore" />
+    <MESSAGE value="suppression &lt;center&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="suppression &lt;center&gt;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/generate_data.py">
@@ -718,13 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/memo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -783,6 +773,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
         </state>
       </provider>
     </entry>
