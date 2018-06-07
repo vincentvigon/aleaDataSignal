@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="" />
+    <list default="true" id="f10e69cb-f7b8-4d6c-8e45-619405d87c11" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/deeplearning/private/toto.py" beforeDir="false" afterPath="$PROJECT_DIR$/deeplearning/private/toto.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +24,8 @@
       <file leaf-file-name="C_saveRestore.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="144">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -44,25 +46,16 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toto.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="toto.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="linearModel.ipynb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="1" />
+            <state relative-caret-position="36">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -84,7 +77,7 @@
       <file leaf-file-name="B_MNIST.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
+            <state relative-caret-position="774">
               <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="e#2#20#0" expanded="true" />
@@ -96,7 +89,7 @@
       <file leaf-file-name="A_dataDealer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
+            <state relative-caret-position="126">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#1#19#0" expanded="true" />
@@ -108,7 +101,7 @@
       <file leaf-file-name="Hat_TwoConvLayer_28.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
+            <state relative-caret-position="1170">
               <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
               <folding>
                 <element signature="e#3#21#0" expanded="true" />
@@ -175,8 +168,8 @@
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/deeplearning/private/toto.py" />
         <option value="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" />
+        <option value="$PROJECT_DIR$/deeplearning/private/toto.py" />
       </list>
     </option>
   </component>
@@ -202,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,6 +206,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,20 +408,28 @@
       <option name="project" value="LOCAL" />
       <updated>1528318504864</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="relecture Mag/Laurent">
+      <created>1528358096662</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528358096662</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.19800995" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.24121211" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24676616" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.225" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.1953125" />
@@ -457,7 +458,8 @@
     <MESSAGE value="rajout d'un espace (test)" />
     <MESSAGE value="test gitignore" />
     <MESSAGE value="suppression &lt;center&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppression &lt;center&gt;" />
+    <MESSAGE value="relecture Mag/Laurent" />
+    <option name="LAST_COMMIT_MESSAGE" value="relecture Mag/Laurent" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/generate_data.py">
@@ -700,7 +702,7 @@
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/save/.index" />
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
+        <state relative-caret-position="1170">
           <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
           <folding>
             <element signature="e#3#21#0" expanded="true" />
@@ -724,7 +726,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
+        <state relative-caret-position="774">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="e#2#20#0" expanded="true" />
@@ -734,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/A_dataDealer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="126">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#1#19#0" expanded="true" />
@@ -744,8 +746,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="144">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -765,14 +767,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -780,6 +775,13 @@
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deeplearning/private/toto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
