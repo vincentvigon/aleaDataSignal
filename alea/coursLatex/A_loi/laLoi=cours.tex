@@ -1,0 +1,1437 @@
+\documentclass{article}
+\input /Users/vigon/visible/MesRacoursis2015
+
+\def\dessin{\ \linebreak \vspace{0.5cm}  \linebreak  DESSIN  \vspace{1cm} \ \linebreak   }
+
+
+
+
+\title{L'esprit des lois de proba}
+
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\section{Introduction}
+
+
+\index{toto}
+
+Commençons par des exemples d'objets aléatoires :
+\begin{itemize}
+\item Le lancé d'un dé ;   c'est un   entier aléatoire.
+\item Un appel de la fonction rand() ; c'est un réel aléatoire.  
+\item Le nombre de sardines et la température moyenne de l'eau pour l'océan atlantique, à une date donnée ; c'est un couple aléatoire.
+\item Le nuage que l'on observera demain dans un coin de ciel. C'est une forme 3D aléatoire. 
+\item La photo d'un carré de pelouse de l'orangerie, photo que j'irais prendre demain. C'est une image aléatoire 2D. 
+\end{itemize}
+Le mot variable aléatoire (v.a.) désigne la plupart du temps un réel aléatoire. Les deux premiers exemples sont des  v.a.
+
+
+
+Un objet aléatoire $X$, est un objet qui n'est pas encore réalisé ou pas encore observé. On ne peut prévoir son aspect que de manière incertaine. On ne peut le décrire qu'au moyen d'une modélisation probabiliste.
+
+Une fois réalisé, ou observé, cet objet n'est plus  aléatoire. On parle alors d'une réalisation de $X$, réalisation que l'on notera $x$.  
+
+Exemple : 3 lancés de dés $X=(X_1,X_2,X_3)$. Ils forment un vecteur aléatoire de $\co R^3$. Mais une fois jeté, les trois dès donnent, disons $x=(2,1,5)$,  qui est un vecteur classique (déterministe).  La probabilité de cette réalisation est $\Pr[X=(2,1,5)]=\frac 1 {6^3}$.
+
+
+La loi d'un objet aléatoire $X$, c'est la probabilité que $X$ fasse ceci ou cela. Moralement c'est la donnée des $\Pr[X=x]$ pour tous les $x$ possibles. Cependant, cette définition fonctionne uniquement  pour des objets aléatoires discrets, càd qui ne peuvent prendre qu'un nombre fini ou dénombrable de valeurs. Dans le cas général, la loi de $X$ c'est la donnée des  $\Pr[X\in A]$ pour tous les $A$ possibles. 
+
+
+Tout ce cours tourne autour de la notion de loi.  Comparé à un cours classique de licence :   
+\begin{itemize}
+\item nous mettrons en avant ce qui est utile en modélisation.
+\item nous mettrons sous  le tapis les difficultés théoriques.
+\item nous emploierons des notations sans doute nouvelles pour vous (Dirac, élément infinitésimal). 
+\end{itemize}
+
+
+
+
+
+\section{Préliminaires sur la théorie de la mesure}
+
+Si vous voulez plus de détails et de rigueur,  après avoir lu cette partie, lisez l'annexe sur la théorie de la mesure. 
+
+
+\subsection{ Mesure et loi}
+
+Une mesure  $\mu$ sur un ensemble $E$ est une application qui à tout $A\subset E$ associe un réel positif et qui  vérifie :
+$$
+A\cap B=\emptyset \imp \mu(A \cup B) = \mu(A) + \mu(B) \eqno{\hb{(Additivité)}}
+$$
+
+Une loi  $\mu$ sur un ensemble $E$ est un mesure qui vérifie, en plus de l'additivité : 
+$$
+\mu(E)=1\eqno{\hb{(Poids 1)}}
+$$
+Le mot "loi" est synonyme de "mesure de probabilité". 
+
+
+
+\subsection{La notation avec $dx$}
+
+Une fonction sur  $E$ se note parfois $f$ ou parfois $f(x)$ où  $x$ est un point générique de l'ensemble de $E$. 
+
+Une mesure  sur  $E$  se note parfois $\mu$ ou parfois $\mu(dx)$ où $dx$ est un sous-ensemble infinitésimal de $E$. 
+
+Par exemple, plutôt que de noter $\fo A \ \Pr[X\in A]=\mu(A)$ on peut noter $\Pr[X\in dx]=\mu(dx)$. Nous verrons plus loin les avantages de cette notation. 
+
+
+\subsection{Intégrale}
+
+
+Considérons une mesure $\mu$ sur $E$.  Considérons une fonction $\ph : E \to \co R$.  L'intégrale de $\ph$ contre $\mu$ se note :
+$$
+\int_E \ph \, \mu  \qq \hb{ou bien} \qq \int_E \ph(x) \mu(dx) 
+$$ 
+Moralement c'est la "moyenne" de $\ph$ pondérée par $\mu$. Imaginons une famille  $(dx_i)_{i}$ de parties de $E$, telle que:  1/ les $dx_i$ soient très petit, 2/ les $dx_i$ soient disjoints, 3/  $E=\cup_i dx_i$  (vocabulaire : $(dx_i)_{i}$ est une partition de $E$). Alors:
+$$
+\int_E \ph(x) \mu(dx)  \simeq \sum_{i} \ph(x_i) \mu(dx_i) 
+$$
+
+\subsection{Mesures de Lebesgue}
+
+\begin{exemple} La mesure de Lebesgue sur $\co R$ donne la longueur des parties de $\co R$. En particulier
+$$
+\fo [a,b] \subset \co R \qq Leb_1([a,b]) = b-a
+$$
+Prenons $\ep>0$ et pour $i\in \co Z$ posons $x_i= i \ep $. Notons $dx_i=[x_i,x_{i+1}[$. Ainsi $(dx_i)_{i\in \co Z}$ est une partition de $\co R$. 
+$$
+\int_{\co R} \ph(x) Leb_1{(dx)} \simeq \sum_i \ph(x_i) Leb_1(dx_i) =   \sum_i \ph(x_i) \ep
+$$
+Pour que $\simeq$ se transforme en $=$, il faut faire tendre $\epsilon$ vers zéro.  
+\end{exemple}
+
+
+\begin{exemple} la mesure de Lebesgue sur $\co R^2$ donne l'aire des parties de $\co R^2$. En particulier 
+$$
+\fo [a,b] \times [c,d]  \subset \co R \qq Leb_2([a,b]\times [c,d]) = (b-a)(d-c)
+$$
+On peut facilement imaginer $(dx_i)_{i}$ une partition de $\co R^2$ composée de petits carrés. Alors :
+$$
+\int_{\co R^2} \ph(x) Leb_2{(dx)} \simeq \sum_i \ph(x_i) Aire(dx_i) 
+$$
+\end{exemple}
+
+
+A partir de ces deux exemples, vous pouvez imaginer comment définir les mesures de Lebesgue sur $\co R^n$.    Mais attention, les mesures de Lebesgue sont très différentes d'une dimension à l'autre. Par exemple, sur $\co R^2$, considérons la droite $D=\{0\} \times \co R^+$. On a $Leb _2 (D)  = 0$ (une demi-droite a une aire nulle).  Alors que $Leb_1(\co R^+)  = +\infty$ (une demi-droite a une longueur infinie). 
+
+
+Notation :   La mesure de Lebesgue sur $\co R^n$ est si courante qu'on la note couramment $dx$ au lieu de $Leb_n(dx)$. On peut aussi la noter $dx_1dx_2 ... dx_n$. 
+
+
+\subsection{L'indicatrice}
+
+Si $A$ est un ensemble, $1_A$ est la fonction indicatrice de $A$:     
+$$
+1_A(x)=
+\begin{cases}
+1 &  \hb{ si } x\in A \\
+0 &  \hb{ si } x\notin A 
+\end{cases}
+$$
+
+\dessin
+
+Les fonctions indicatrices sont extrêmement simples à intégrer : 
+$$
+\int_E 1_A (x) \mu(dx) = \mu(A)
+$$
+Les fonctions étagées sont les fonction de la forme $\ph=\sum_i w_i 1_{A_i}$. Elles s'intègrent comme ceci : 
+$$
+\int_E \ph (x) \mu(dx) =  \sum_i w_i  \mu(A_i)
+$$
+Exo : il manque une  hypothèse que pour l'égalité ci-dessus soit vraie. 
+
+
+Toute fonction  peut-être approchée par des fonctions étagées. 
+
+\dessin
+
+\subsection{La Dirac}
+
+Soit  $E$ un ensemble et $k\in E$.  La mesure de Dirac $\de_k$ est une loi concentrée en un seul point. Elle  est définie par 
+$$
+\fo A \subset E \ \ \de_k(A) = 1_A(k) 
+$$
+Ce qui revient aussi à $\de_k(\{k\})=1$ et $\de_k(E \setminus \{k\})=0$ 
+
+\dessin
+
+On peut sommer des Dirac. Par exemple, la mesure de comptage sur $\co Z$ est $cont = \sum_{i\in \co Z} \de_i$.  Si $A\subset \co Z$ alors $cont(A) = ...$. 
+
+\dessin
+
+Propriété et exo : soient   $A,B\subset \co Z$ tels que l'on peut passer de l'un à l'autre par une translation, alors $cont(A) = cont(B)$. Quelle autre mesure a cette propriété ? 
+
+
+\subsection{Intégrale avec des Dirac}
+
+Puisque  la mesure de Dirac $\de_k$ met tout son poids en $k$, elle  vérifie donc 
+$$
+ \int_E \ph(x) \de_k(dx) = \ph(k)
+$$
+Soient $k_i \in E$ et $w_i$ des poids, en utilisant l'équation du dessus et la linéarité de l'intégrale :
+$$
+\int  \ph (x)  \      {\ts\sum_i} w_i\, \de_{k_i}(dx)    = \sum_i w_i \, \ph(k_i)
+$$
+ Nous utiliserons cette formule dans la section sur les lois discrètes. 
+
+
+
+
+\section{Définition de la loi d'un objet aléatoire}
+
+
+
+
+\subsection{Lien entre "une loi" et "la loi d'un objet aléatoire"}
+
+Reprenons une phrase de l'introduction.
+\begin{center}
+<<la loi de $X$ c'est la donnée des  $\Pr[X\in A]$ pour tous les A possibles>>. 
+\end{center}
+Tous les $A$ possible ? Cela signifie tous les $A \subset E$ où $E$ est l'ensemble dans lequel $X$ prend ses valeurs.   Il faut toujours bien préciser cet ensemble. Par exemple 
+\begin{itemize}
+\item Le lancé d'un dé.  $E=\{1,2,3,4,5,6\}$ 
+\item L'appel de la fonction rand(). $E= [0,1]$. 
+\item Le nombre de sardines et la température de l'eau pour l'océan atlantique. $E=\co N \times \co R_+$. 
+\item Le nuage que l'on observera demain dans un coin de ciel. $E$ est l'ensemble des sous-ensembles de $\co R^3$. 
+\item La photo d'un carré de pelouse de l'orangerie de $1\times 1$ mètre. $E=[0,1]^2$. 
+\end{itemize}
+Exo: Cherchez l'erreur ci-dessus. 
+
+Remarque :  L'ensemble $E$ dans lequel $X$ prend ses valeurs est aussi appelé espace d'arrivée de $X$.  On n'est pas toujours obligé de définir l'espace d'arrivée le plus petit possible. Par exemple, pour un couple de dés, on pourrait  choisir pour $E$ les ensembles   $ \co N^2$ ou $\co Z^2$ ou $\co R_+^2$ ou $\co R^2$. Le plus petit ensemble fermé $F$  telle $\Pr[X\in F]=1$  s'appelle le support de la loi de $X$. Pour un couple de dés, le support est $\{1,2,3,4,5,6\}^2$.  
+
+
+Ici nous parlons de "loi d'objet aléatoire". Dans les préliminaires, nous avons parlé de "loi" tout court. Le lien vient maintenant: 
+\begin{definition}  $X\in E$ a la loi (ou suit la loi)  $\mu$ quand :
+$$
+\fo A\subset E  \qq \Pr[X\in A]=\mu(A)
+$$
+\end{definition}
+
+Remarquons que l'axiome  (Additivité)   :
+$$
+A\cap B=\emptyset \imp \mu(A \cup B) = \mu(A) + \mu(B) \eqno{\hb{(Additivité)}}
+$$
+s'interprète  alors naturellement  : 
+\begin{center}
+<<Quand $A$ et $B$ sont disjoints, la probabilité que $X$ tombe dans $A$ ou dans $B$ c'est la somme des probabilités. >>
+\end{center}
+
+
+
+
+ATTENTION : De  nombreux étudiants ont tendance à identifier (ou mélanger) les objets aléatoires et leurs lois.   Cette erreur est provoquée par un vocabulaire trompeur. Par exemple :
+\begin{itemize}
+\item <<Une v.a. gaussienne>>, est un raccourci de, <<une v.a. suivant la loi gaussienne">>. 
+\item <<Une v.a. exponentielle>>, est un raccourci de, <<une v.a. suivant la loi exponentielle">>. 
+\item <<Les v.a. $X_n$ convergent en loi vers une gaussienne>>, est un raccourci de <<les lois de $X_n$ convergent vers la loi gaussienne>>.
+\item etc. 
+\end{itemize}
+
+
+
+
+
+\subsection{Grand Oméga}
+
+Dans un cours de probabilité classique on commence par introduire $(\Om,\Pr)$ où 
+\begin{itemize}
+\item $\Om$ est un ensemble qui représente tous les hasards possibles
+\item $\Pr$ est une loi (ou mesure de probabilité) sur $\Om$ qui pondère les  hasards. 
+\end{itemize}
+Dès lors,  un objet aléatoire est une  application $X: \Om \to E$. Elle fait correspondre à chaque hasard $\om$ une valeur $X(\om)$.    
+    
+Dans un cours de modélisation, nous ne définissons précisément ni $\Om$ ni  $\Pr$. Nous ne donnons que les objets aléatoire qui nous intéressent et donnons leurs lois.  Un énoncé typique est :  << Considérons $N$ étoiles réparties de manière gaussienne dans l'espace tri-dimensionnel>>. Qu'il faut traduire par <<Considérons $X_1,...,X_N$ des v.a.  indépendantes de loi gaussienne sur $\co R^3$>>.  
+
+
+
+
+
+\subsection{Formule Générale de l'Espérance (FGE)}
+
+
+Considérons $X $ un réel aléatoire, donc formellement $X:\Om\to \co R$.     Son espérance, c'est la moyenne de $X$ sur tous les hasards possibles, pondérée par $\Pr$:
+$$ 
+\Es[X] = \int _\Om  X(\om) \Pr[d\om]  \eqno{(A)}
+$$
+Mais la formule utile est :
+$$
+\Es[X] = \int_{\co R}  x \, \Pr[X\in dx] \eqno{(B)}
+$$
+c.à.d.  la moyenne des valeurs de $X$, pondérée par la loi de $x$. 
+
+
+ATTENTION : l'espérance n'est définie que pour des objets aléatoires à valeurs dans $\co R$.  Par exemple, cela n'aurait aucun sens de moyenner  des objets aléatoires modélisant des nuages. Par contre on pourrait moyenner des volumes de nuage   !        Ainsi, si $X$ est   un objet aléatoire à valeurs dans un ensemble $E$, on peut considérer une fonction $\ph : E \to \co R$.  Alors  $\ph(X)$ est un réel aléatoire, et son espérance se calcule avec la formule
+\begin{mdframed}
+$$
+\Es[\ph(X)] = \int_{E}  \ph(x)  \Pr[X \in dx]  \eqno{(FGE)}
+$$
+	\end{mdframed}
+Retenez la formule ci-dessus : la Formule Générale de l'Espérance (FGE). Nous allons la décliner dans plusieurs cas particulier (loi discrète, loi à densité). 
+
+
+Si vous voulez comprendre comment les liens entre $(A)$, $(B)$ et  $(FGE)$, lisez l'annexe sur le théorème de transfert. 
+
+
+\subsection{La variance et l'écart type}
+
+
+
+Considérons $X$ un réel aléatoire d'espérance $m$. La variance de $X$ c'est :
+$$
+\Vr[X]  = \Es[ (X - m )^2 ]  =  \int_{\co R}  (x - m)^2 \  \Pr[X\in dx]
+$$
+L'écart type de $X$ est la racine carrée de la variance. L'écart type représente l'écart moyen de $X$ autour de son espérance.   Ainsi lorsque vous simulez des v.a. d'espérance $m$ et d'écart type $\si$, vous obtennez des nombres réels $x_i$ qui se répartissent autours de $m$ et tels que les  $|x_i-m|$ ont pour ordre de grandeur $\si$. 
+
+
+ Exo. Vous simulez des v.a. exponentielles de paramètre $0.1$. Les  simulations successives vous donnent 
+ $$
+ 10.13543 ,  \qq 10.26257, \qq 9.9043675, \qq 10.100132, \qq 9.89632 ... 
+ $$ 
+ Votre programme est-il buggé ? 
+
+
+Exo. Montrez que l'on a aussi $\Vr[X] = \Es[X^2] - \Es[X]^2$. 
+
+
+\section{Les lois discrètes}
+
+
+\subsection{Définition d'une loi discrète}
+
+ Une loi $\mu$ sur $E$ est dite discrète lorsqu'elle ne charge qu'un nombre fini ou dénombrable de points. Si nous notons $k_i\in E$ ces points, et $w_i$ les poids correspondants, la loi $\mu$ peut-être notée 
+$$
+\mu(dx)  = \sum_i w_i \,\de_{k_i} (dx)
+$$  
+Remarque puisque $\mu$ est une loi, les poids $w_i$ doivent vérifier $\sum_i w_i=1$. 
+
+Un objet aléatoire est dit discret lorsqu'il ne peut prendre d'un nombre fini ou dénombrable de valeurs. Bien entendu, la loi d'un objet aléatoire discret est une loi discrète : en notant $(k_i)$ les valeurs que peut prendre $X$:
+$$
+ \Pr[X \in dx ]   = \sum_i  \Pr[X=k_i] \, \de_{k_i}(dx) 
+$$ 
+
+
+Exemple :  $X$ n'est pas aléatoire : elle prend toujours la valeur $k$. Sa loi est $\de_k$. 
+
+Exemple : $X$ est le résultat d'un pile ou face. Sa loi c'est $\frac 1  2 \de_P + \frac 12 \de_F$.  
+
+Exemple : $X$ prend les valeurs $1$ avec probabilité $p$ et $0$ avec probabilités $1-p$. La loi de $X$ est appelée loi de Bernouilli de paramètre $p$. 
+
+Exo : Revoyez les lois Binomiales, Géométrique et de Poisson. Il faut les  connaitre par coeur.  Ecrivez-les avec des Dirac. Par exemple
+$$
+Poisson(\la) = e^{-\la }\sum_{n\geq 0}   \frac {\la^n}{n!}  \de_n
+$$ 
+ou bien sans Dirac : Si $X$ suit une loi de Poisson($\la$) alors $\Pr[X=n] =  \frac {\la^n}{n!}  $. 
+
+
+
+
+\subsection{La formule de l'espérance et de la variance}
+
+
+En employant la formule générale de l'espérance (FGE) avec une v.a. $X$ discrète  de loi $\sum_i \Pr[X=k_i] \de_{k_i}$ on trouve 
+$$
+\Es[\ph(X)]  = \int \ph(x) \ \Pr[X\in dx ]  =    \sum_i \ph(k_i) \ \Pr[X=k_i]
+$$ 
+en particulier, si $X$ est un réel aléatoire 
+\begin{alignat*}{1}
+\Es[X]  &= \int x \ \Pr[X\in dx ]  =    \sum_i   k_i \ \Pr[X=k_i]\\
+\Vr [X]  &=  ... 
+\end{alignat*}
+ 
+ 
+Exo : Révisez  comment calculer les espérances et des variances  des lois classiques. Ex: quand $X$ suit une loi de Poisson($\la$): 
+$$
+\Es[X] = e^{-\la }\sum_{n\geq 0}   \frac {\la^n}{n!}   n = ... = \la
+$$
+ $$
+ \Vr[X] =  ...= \la
+ $$ 
+Question : Si vous simulez des v.a. de Poisson avec un grand paramètre $\la$ et que vous trouvez:
+$$
+10011, \qq 10093, \qq  9 926,  \qq 10 201, \qq  9 876, \qq  10047  
+$$ 
+Votre programme est-il buggé ? 
+
+
+\subsection{ Loi uniforme}
+
+
+Soit $E$ un ensemble fini. La loi uniforme sur $E$ est la loi $\mu$ définie par : 
+$$
+\fo A\subset E \qq \mu(A) =  \frac {\hb{nombre de points dans $A$}}{\hb{nombre de points dans $E$}}
+$$
+
+Notons $n$ le nombre de points dans $E$ et notons $k_i$ les éléments de $E$.  La loi uniforme sur $E$ se note aussi : 
+$$
+\mu =  \sum_{k_i \in E}  \frac 1 n  \,  \de_{k_i} 
+$$
+
+Exemple : Soit $X$ le résultat d'un lancé de dé. Il a une loi uniforme sur $\{1,2,3,4,5,6\}$. Son espérance vaut ... 
+
+En langage courant, lorsque l'on dit <<prenons un points $X$ au hasard dans $E$>>   et que $E$ est un ensemble fini, il faut comprendre  <<considérons un point aléatoire $X\in E$ de loi uniforme>>. 
+
+
+
+\section{Les lois à densité}
+
+Attention: lorsque l'on ne précise pas, "loi à densité" signifie "loi à densité par rapport à la mesure de Lebesgue". 
+
+
+\subsection{Loi à densité sur $\co R$}
+
+
+Une loi $\mu$ sur $ \co R $ est à densité lorsqu'il existe une fonction $f$  positive vérifiant:
+$$
+\fo A \subset E \qq \mu(A) = \int_{\co R}  1_A(x)     f(x) \, Leb_1(dx)= \int_{\co R}  1_A(x)     f(x) \, dx
+$$
+On peut aussi écrire $\mu(dx) =  f(x)\, dx$. Moralement $\mu$ donne  le poids $f(x)\, dx$ à l'élément infinitésimal $dx$.   Donc $\mu$ charge davantage les parties où $f$ est grande.
+
+
+\subsection{La gaussienne}
+
+Exemple fondamental :  la loi gaussienne est définie par : 
+$$
+    \mu(dx) = \frac 1 {\sqrt{2 \pi}}  e^{- \frac 1 2 x^2} \, dx 
+$$
+
+\dessin
+
+Elle charge beaucoup les parties proches de zéro, et très très peu les parties proches de $+\infty$ ou $-\infty$ (elle est à queue légère).  
+
+On dit qu'une  v.a.  $X$ est gaussienne lorsque sa  loi est gaussienne :
+$$
+\Pr[X\in dx ]   = \frac 1 {\sqrt{2 \pi}}  e^{- \frac 1 2 x^2} \, dx 
+$$
+On a  par exemple
+$$
+ \Pr[X \geq 0 ] = \Pr\Big[X\in [0,\infty [  \Big ] = \int_0^\infty   \frac 1 {\sqrt{2 \pi}}  e^{- \frac 1 2 x^2} \, dx = \frac 1 2
+$$
+
+
+
+\subsection{Les loi à densité ne chargent pas les points}
+
+Remarque :    quand on écrit  $\Pr[X\in dx]=\mu(dx) =f(x) \, dx$, cela illustre bien le fait que : plus  $f(x)$ est grand et plus $X$ a de chance de tomber dans $dx$. Mais attention, cette phrase est une image "à la physicienne" car $dx$ est infinitésimal. Il ne faut pas en déduire que $\Pr[X=x]=f(x)$. En vérité on a :
+$$
+\Pr[X=x] = \Pr[X\in \{x\}] = \int_{\co R}  1_{\{x\}} (y) f(y) dy  =  0 
+$$
+
+Par ailleurs, il  ne faut pas confondre $\int_{\co R}   f(y)  \  1_{\{x\}} (y) dy  $ qui vaut zéro avec $ \int_{\co R}   f(y) \  \de_x(dy)$ qui vaut $f(x)$.  La Dirac a un poids de 1, alors que la mesure $1_{\{x\}} (y) dy  $ a un poids de zéro. 
+
+Ceci en tête, vous comprendrez pourquoi on ne peut pas définir la loi d'un objet aléatoire par la connaissance des $\Pr[X=x]$ pour tout $x$. 
+
+
+\subsection{loi à densité sur $\co R^n$}
+
+
+Notations : prenons  $x=(x_1,x_2) \in \co R^2$. L'élément infinitésimal $dx$ correspond  au petit carré $dx_1 \times dx_2$.  On peut par exemple écrire
+$$
+\Pr[(X_1,X_2) \in  dx ] = \Pr[(X_1,X_2) \in  dx_1 \times dx_2]  =  \Pr[ X_1 \in  dx_1 \hb { et } X_2 \in dx_2]
+$$
+Le "et" dans les probabilités sera souvent remplacé par une virgule: $ \Pr[ X_1 \in  dx_1 ,  X_2 \in dx_2]$
+
+
+Une loi $\mu$ sur $ \co R^n $ est à densité lorsque qu'il existe une fonction $f$ vérifiant:
+$$
+\fo A \subset E \qq  \mu(A) = \int_{\co R^n}  1_A(x)     f(x) \, dx =  \int_{\co R^n}  1_A(x_1,...,x_n)     f(x_1,...,x_n) \, dx_1 ... dx_n  
+$$
+
+
+Exemple de calcul utilisant les densités :  Supposons que la loi de $X=(X_1,X_2)\in \co R^2 $ est donnée par la densité $f(x_1,x_2)$ c.à.d: 
+$$
+\Pr[X_1 \in  dx_1 , X_2 \in dx_2] = f(x_1,x_2) dx_1 dx_2
+$$
+Calculons la loi de $X_1$ "tout seul":  
+\begin{alignat*}{1}
+\Pr[X_1 \in A]& =\Pr[X_1 \in  A , X_2 \in \co R] \\
+&=    \int_{\co R^2} 1_A(x_1) 1_{\co R}(x_2)  f(x_1,x_2) dx_1 dx_2\\
+&= \int 1_A(x_1)     \Big ( \int_{\co R} f(x_1,x_2)  dx_2 \Big) dx_1 
+\end{alignat*}
+On en déduit que la loi de $X_1$ admet la densité suivante  
+$$
+x_1 \to   \Big ( \int_{\co R} f(x_1,x_2)  dx_2 \Big)
+$$
+
+
+
+\subsection{Formule pour l'espérance}
+
+
+
+Soit $X\in \co R^n$ un vecteur aléatoire de densité $f$.   Soit $\ph$ est une fonction de $\co R^n$ dans $\co R$.  D'après la  formule générale de l'espérance  (FGE) : 
+\begin{equation*}
+\Es[\ph(X)] = \int_{\co R^n}  \ph(x)  f(x) dx  =  \int_{\co R^n}  \ph(x) \Pr[X\in dx] 
+\end{equation*}
+
+En particulier si $n=1$,  on peut calculer l'espérance de $X$:
+\begin{alignat*}{1}
+\Es[X] &= \int_{\co R} x f(x) dx  \\
+\Vr[X] &= ...
+ \end{alignat*}
+
+
+
+
+\subsection{Loi uniforme sur une partie de $\co R^n$}
+
+Soit $E \subset \co R^n$. La loi uniforme sur $E$ est la loi 
+$$
+\mu(dx) =   \cst \, 1_{E} (x) dx  
+$$  
+où $\cst$ est une constante de normalisation qui vaut forcément   $1/ Leb_n(E) $.   Pour que cela ait du sens il faut que $Leb_n(E) $ soit finie. Par exemple, on ne peut pas définir de loi uniforme sur $\co R_+$. 
+
+
+Exemple : Soit $X$ le résultat d'un appel de la fonction rand().  Cette v.a. a une loi uniforme sur $[0,1]$. 
+$$
+\fo A \subset [0,1] \qq  \Pr[X \in A ] = \int_{[0,1]}  1_A  dx
+$$ 
+En particulier pour $[a,b]\subset [0,1]$ on a  $\Pr\Big[X \in  [a,b] \Big] = b-a$. 
+
+Exo : Pour $[a,b]\subset \co R $ , il faut écrire précisément  
+$$
+\Pr[X \in  [a,b] ] = ... 
+$$
+   Complétez en utilisant les notations pratiques $c \infe d = \min(c,d)$ et  $c \supe d = \max(c,d)$.
+
+
+
+Dans le langage courant, quand on dit : <<prenons un point au hasard>>, cela sous-entend : selon une loi uniforme. 
+
+
+
+\section{Exo}
+
+ Soit  $X$  une v.a. de loi uniforme sur $[0,1]$. Considérons $Y=2X-1$. Elle suit une loi uniforme sur ...   et vérifie donc 
+$$
+\fo [a,b] \subset [-1,1] \qq \Pr[Y \in  [a,b] ] = ... 
+$$
+Quant à $Z=-Y$,  c'est une autre v.a. qui suit la loi ... 
+
+Soit $X$ une v.a. de loi uniforme sur $[-2,2]$. Considérons $Y=X^2$. Quelles sont les valeurs possibles pour $Y$ ? Intuitivement :  quelles sont les parties de $\co R$ que la loi de  $Y$ charge le plus. 
+Nous verrons plus loin comment vérifier notre intuition. 
+
+
+
+
+
+
+
+
+\section{Autres type de loi}
+
+
+En apprenant les  probabilités en licence, on peut avoir  l'impressions que toutes les v.a. ont des lois à densité ou des lois discrète. C'est loin d'être le cas, même si l'on se restreint aux exemples concrets.  
+
+
+
+\subsection{Loi portée par un sous-ensemble fin}
+
+
+Considérons le carré $E=[0,1]^2$. Prenons $X$ un  point pris au hasard sur périmètre $P$ de $E$.     La loi de $X$ n'est pas discrète (car le périmètre $P$ a un nombre infini de point). Mais la loi de $X$ n'est pas non plus à densité. Raisonnons par l'absurde. Si $\Pr[X\in dx] = f(x) dx$ alors  
+$$
+1=  \Pr[X\in P ] =  \int_{[0,1]^2} 1_P (x) f(x) dx
+ $$  
+ Or, $P$ ayant une aire nulle, l'intégrale ci-dessus vaut zéro. 
+ 
+ De manière plus générale, si $X$ est à valeurs dans $\co R^n$, mais  prend ses valeurs que des  ensembles de dimension strictement inférieur à $n$,  alors $X$ ne suit pas une loi à densité. 
+
+Exo : Dessinez les supports des lois de couple $(X,Y)\in \co R^2$ suivants. Indiquez s'ils  ont une loi à une densité, une loi discrète,   ou ni l'un ni l'autre. 
+\begin{itemize}
+\item $X$ est une loi uniforme sur $[-2,2]$ et $Y=X^2$. 
+\item $X$ est le nombre de sardines et $Y$ la température moyenne de l'océan atlantique à une date donnée. 
+\item $X$ est le premier résultat de la fonction rand(). $Y$ est le second résultat de la fonction rand().
+\item $X$ et $Y$ sont deux lancés de dé.  
+\end{itemize}
+ 
+
+
+\subsection{Une loi continue sur une surface}
+
+Le tirage d'un point "au hasard" sur la terre, peut-être modélisé par une v.a. $X$ de loi uniforme sur la sphère $\co S$ de circonférence 40 075 km.  
+ Ce qui signifie que pour tout $A \subset \co S$, $\Pr[X\in A]$   vaut la surface de $A$ divisé par surface totale de $\co S$.   
+
+Question : Quelle est la probabilité que $X$ tombe exactement sur l'équateur ?  
+
+\dessin
+
+Notons $\mu(dx)$ la loi uniforme sur le globe, décrite précédemment. La position d'un homme tiré au hasard sur terre aura comme loi $\nu(dx)= f(x) \mu(dx)$ où $f$ désigne la densité de population sur terre.  Par exemple $f$ est nulle en mer, et admet des pics en chaque ville. 
+
+
+Vocabulaire. Comme précédemment, considérons une mesure $\nu$ qui s'écrive $\nu(dx) = f(x) \mu(dx)$. On dit que $f$ est la densité de $\nu$ relativement à $\mu$. On décrit même $f(x) = \frac {\nu(dx)}{\mu(dx)}$. Mais rappelons, que, si l'on ne précise pas, les densités sont toujours relatives à la mesure de Lebesgue.  
+
+
+
+
+\subsection{Loi mélangeant  discret et densité}
+
+Imaginez le jeu suivant : vous tirez un pile ou face. 
+\begin{itemize}
+\item Si pile tombe, alors vous lancez un dé et vous gagnez le chiffre du dé en euros.  
+\item Si face tombe, vous lancez la fonction rand(), et vous gagnez  10 fois le résultat en euros.
+\end{itemize}
+
+\dessin
+
+
+La loi du gain $X$ est alors 
+$$
+\Pr[X\in dx] =  \frac 12  \sum_{i=1}^6  \frac 1 6  \de_i(dx)  \ + \     \frac  1 2   *   10 *    1_{[0,1]}  dx   
+$$
+L'espérance d'un fonction $\ph$ du gain est donc : 
+$$
+\Es[\ph(X)] = \frac 12  \sum_{i=1}^6  \frac 1 6  \ph(i)    \ + \     \frac  1 2  * 10 *     \int_{[0,1]}  \ph(x)  dx
+$$
+
+Exo : corrigez l'erreur bête dans les 2 équations ci-dessus. 
+
+
+\subsection{Lois étranges}
+
+Ce dernier exemple n'est pas du tout concret. 
+
+Il existe des lois étranges, même sur $\co R$. Connaissez-vous l'escalier de Cantor ? C'est une fonction croissante $F$ qui est continue mais très irrégulière. 
+
+\dessin
+
+On peut définir une mesure sur $\co R$ par $\fo ]a,b] \subset \co R \ \mu([a,b]) = F(b) - F(a)$.  Cette loi ne peux s'écrire ni comme une somme de Dirac, ni comme une loi à densité, ni même comme un mélange des deux.  
+
+
+\subsection{Lois sur des gros espaces.}
+
+Considérons $E$  l'ensemble des fonctions de $\co R^+$ dans $\co R^n$.   Un élément $x\in E$  représente souvent la trajectoire d'une quantité dans le temps. Donc si $X=(X_t)_{t\in \co R_+}$ est un objet aléatoire à valeurs dans $E$,   $X$ représente une trajectoire aléatoire.  Pour décrire la loi d'un objet si compliqué, nous nous contenterons de décrire la loi des vecteurs $(X_{t_1},...,X_{t_n})$ pour toutes les familles finies d'indice $(t_1,...,t_n)$.  Nous en reparlerons. 
+  
+
+
+Remarque : L'ensemble $E$ ci-dessus est de dimension infinie. Dans ce cas, on ne préfère pas définir de mesure de Lebesgue. Donc on ne dira pas que les lois des trajectoires aléatoires sont a  densité (ou alors ce sera une densité par rapport à une mesure qu'il faut préciser). 
+
+ 
+
+
+
+\section{Caractérisation des lois}
+
+
+
+
+
+\subsection{Caractérisation avec des fonctions tests}
+
+
+Une fonction test  $\ph$ sur $E$ est une fonction telle que $\int_E\ph \mu$ est toujours bien définie pour toute loi $\mu$.  Par exemple, sur $\co R$, on ne choisira pas $x\to \frac 1 x$ comme fonction test.  Comme ensemble $\Phi$ de fonction test on peut prendre
+\begin{itemize}
+\item l'ensemble des indicatrices.
+\item  l'ensemble de toutes les fonctions bornées. 
+\item  l'ensemble des fonctions positives. 
+\item  l'ensemble des fonctions continues bornées (cette dernière famille nous sera utile pour la convergence de loi).  
+\end{itemize}
+Je conseille de choisir par défaut les fonctions positives.  Puisque $\Phi$ est suffisamment "riche",     la loi d'un objet aléatoire $X\in E$ est "caractérisée" par  les quantités:
+$$
+\Big(  \Es[ \ph(X)]   : \ph \in \Phi    \Big)
+$$
+Le mot "caractérisé" signifie que : 
+$$
+\fo \ph \in \Phi :   \Es[ \ph(X)]=  \int \ph(x)   \mu(dx) \qq   \equi\qq  \Pr[X\in dx] = \mu(dx)
+$$
+Variante pour 2 objets aléatoires :
+$$
+\fo \ph \in \Phi :   \Es[ \ph(X_1)]=\Es[\ph(X_2) ]   \qq \equi \qq \Pr[X_1\in dx] = \Pr[X_2\in dx]  
+$$
+
+
+
+\subsection{Exo : Le carré d'une v.a. uniforme, suite}
+
+
+Considérons une v.a. $X$ de loi uniforme sur $[-2,2]$. Considérons $Y=X^2$. Intuitivement, nous avons vu que $Y$ chargeait beaucoup les voisinages de zéro. Calculons explicitement la loi de $Y$. Prenons une fonction test positive $\ph$. 
+\begin{alignat*}{1}
+\Es[\ph(Y)]=\Es[\ph(X^2)] &= \int_{[-2,2] } \ph(x^2) \Pr[X\in dx ] \\
+&= \int_{[-2,2] } \ph(x^2)  \frac 1 4  dx \\
+&=   \frac  1 2 \int_{[0,2] } \ph(x^2)   dx 
+\intertext{Changement de variable : $x^2\to y, x\to \sqrt y, dx \to \frac {dy}{2 \sqrt y}  $,$x\in [0,2] \equi y\in [0,4]$}
+&=  \frac  1 2 \int_{[0,4 ] }   \ph(y )  \, \frac {1}{2 \sqrt y}\, dy
+\end{alignat*}
+Nous venons d'établir que 
+$$
+\Es[\ph(Y)] = \int_{\co R}   \ph(y )   1_{[0,4 ] } \,  \frac {1}{4 \sqrt y}   \, dy 
+$$
+Puisque l'égalité ci-dessus est vraie pour n'importe quelle fonction test $\ph$, nous avons :  
+$$
+ \Pr[Y\in dy] = 1_{[0,4 ] } \,  \frac {1}{4 \sqrt y}   \, dy 
+$$ 
+
+\dessin
+
+
+
+
+
+
+\subsection{Caractérisation  sur $\co R$.}
+
+Soit $X$ un réel aléatoire (une v.a.). La loi   de $X$ est caractérisée par l'un ou l'autre des objets ci-dessous:
+\begin{itemize}
+\item Sa fonction de répartition, c.à.d. la fonction $ x \dans \Pr[X\leq x] $.  
+\item Ses probabilités d'appartenir aux intervalles, c.à.d. par la famille $( \Pr[X\in I ] : I$ intervalle de $\co R$).
+\item Sa fonction caractéristique, c.à.d. la fonction $ u \dans  \Es[ e^{iu X} ] $.  
+\end{itemize}
+
+Remarque : Ces caractérisations, sont aussi des caractérisations à l'aide de fonctions tests. Par exemple, en utilisant 
+$$
+\Pr[X\leq x] = \Es[ 1_{\{X\leq x\}}  ] = \Es\Big[1_{]-\infty,x]}(X) \Big ]
+$$
+Nous voyons que, connaitre la fonction de répartition, revient à connaitre la famille :
+$
+\big(  \Es[ \ph(X)]   : \ph \in \Phi   \big)
+$
+avec comme ensemble de fonctions tests
+$$
+\Phi=\{ 1_{]-\infty,x]} : x\in \co R  \}
+$$
+
+
+
+
+
+\subsection{Les deux cas particuliers}
+
+Enfonçons des portes ouvertes: 
+
+Si $X$ est une v.a. ayant une loi à densité, alors sa loi est caractérisée par cette densité. 
+
+Si $X$ est une v.a. ayant une loi discrète, alors sa loi est caractérisée par la liste des points  $(k_i)$  et  des poids $(w_i)$. 
+
+
+
+\subsection{Exo : D'un  caractérisation à l'autre}
+
+
+Soit $X$ une v.a. 
+\begin{enumerate}
+\item  Calculez les  $\Pr\Big[X\in ]a,b] \Big]$  à partir des  $\Pr[X \leq x]$. 
+\item  Calculez les  $\Pr[X\in I ]$, pour $I$ intervalle ouvert, fermé, semi-ouvert, à partir des $\Pr\Big[X\in ]a,b] \Big]$.  
+\item   Calculez les  $\Pr\Big[X\in [a,b] \Big]$ à partir des $(\Es[\ph(X)] : \ph : $ fonction continue bornée). 
+\end{enumerate}
+
+Indices : 
+\begin{enumerate}
+\item  Faites une soustraction ensembliste. 
+\item  Faites des passages à la limite en utilisant des égalités comme $ [0,1] = \cap_n [0,1+\frac 1 n [   $ 
+\item   N'essayez pas de formaliser, un bon dessin suffira. 
+\end{enumerate}
+
+
+
+
+
+\subsection{Vecteur aléatoire }
+
+
+Soit $X=(X_1,X_2)$ un vecteur aléatoire de $\co R^2$.  Les lois de $X_1$ et de $X_2$ sont appelées : les lois marginales de $X$ ; ce sont des lois sur $\co R$ alors que la loi de $X$ est une loi sur $\co R^2$.
+ Ces deux lois marginales ne caractérisent p\underline{as} la loi de $X$.    Autrement dit, la donnée des $\Pr[X_1 \in A]$ et   $\Pr[X_2 \in B]$  pour tout $A,B$ parties de $\co R$ ne suffit pas pour calculer les  $\Pr[X\in C]  $ pour $C$ partie de   $\co R^2$.  
+
+
+Exemple:  Prenons $X_1,X_2$  deux tirages successifs de la fonction rand().  Considérons $X=(X_1,X_2)$ et $Y=(X_1,X_1)$. Ces deux vecteurs aléatoires ont les mêmes lois marginales, mais n'ont pas du tout la même loi. Par exemple, si $\Delta$ désigne la diagonale du carré $[0,1] \times [0,1]$ on a
+\begin{alignat*}{1}
+\Pr[ X \in \Delta  ] &= 0\\ 
+\Pr[ Y \in \Delta  ] &= 1 
+\end{alignat*}
+ 
+\dessin
+
+
+Par contre la loi de $X\in \co R^2$ est caractérisée par la donnée de tous les $\Pr[X \in  A \times  B]$ pour tout $A,B$ parties de $\co R$ (ou peut même se contenter des intervalles de $\co R$).  C'est assez logique, toute partie $C$ de $\co R^2$ peut-être approchée aussi finement que l'on veut par des unions de petits rectangles $A_i\times B_i$  disjoints. Et donc 
+$$
+ C \simeq  \bigcup_i  A_i\times B_i   \imp  \Pr[X\in C] \simeq \sum_i \Pr[ X\in A_i \times B_i  ]
+$$
+
+\dessin
+
+
+
+
+
+\section{Indépendances}
+
+\subsection{Indépendance de deux objets aléatoires}
+
+Deux objets aléatoires $X_1$ et $X_2$ à valeurs dans $E_1$ et $E_2$ sont indépendants lorsque 
+$$
+\fo A\subset E_1\ \fo B\subset E_2 \qquad \Pr[ X_1 \in A  ,  X_2 \in B] = \Pr[X_1\in A] \, \Pr[X_2\in B]
+$$
+Remarque: on en déduit que quand $X_1$ et $X_2$ sont indépendants,  la proba $\Pr[(X_1,X_2) \in A\times B] $ est déterminée par  $\Pr[X_1\in A]$ et $ \Pr[X_2\in B]$. Donc  les lois marginales  caractérisent la loi du couple. 
+
+Quand $X_1$ et $X_2$ sont discrets. L'indépendance est équivalente à
+$$
+\fo a \in E_1, \fo b\in E_2 \qq \Pr[X_1=a, X_2=b] = \Pr[X_1=a]\, \Pr[X_2=b]
+$$
+
+\subsection{Exemple discret}
+
+Exo : Soient $X_1\in\{a,b\}$ et $X_2\in \{c,d\}$ des objets aléatoires. Supposons que leur loi jointe (=la loi du couple) est décrite par le tableau suivant:
+$$
+\begin{array}{c|c|c}
+	& a & b  \\
+	\hline
+c	& \frac 16 & \frac 2 6 \\
+\hline
+d	& \frac 16 & \frac 2 6 \\
+\end{array}
+$$
+Par exemple $\Pr[X_1=a,X_2=c]=\frac 16$.  Montrez que $X_1$ et $X_2$ sont indépendants.  Indice : commencez par calculer les lois marginales. 
+
+
+
+\subsection{Caractérisation avec des fonctions testes (splitting)}
+
+$X_1$ et $X_2$ sont indépendants si et seulement si pour toutes fonctions testes  $\ph:E_1 \to \co R$ et $\psi:E_2 \to \co R$ on a
+$$
+\Es[\ph(X_1) \psi(X_2)]= \Es[\ph(X_1)] \Es[\psi(X_2)]
+$$
+(on peut "splitter" l'espérance)
+
+Exo : En supposant le "splitting" ci-dessous, montrez l'indépendance. 
+
+Exo : En supposant l'indépendance, montrer que le  splitting est vrai, dans le cas particulier  des fonctions testes $\ph$ et $\psi$ étagées (de la forme $ \sum_i c_i 1_{A_i}$). Le cas général s'en déduit par un passage à la limite. 
+
+
+Attention:  Dans le cas de v.a., l'égalité  $\Es[X_1 X_2] = \Es[X_1] \Es[X_2]$ n'implique pas l'indépendance. 
+
+
+
+
+\subsection{Indépendance d'une famille finie}
+
+Les éléments d'un vecteur aléatoire $(X_1,...,X_n)$ sont indépendants   lorsque ...   (imaginez la définition. Imaginez la caractérisation avec le splitting)
+
+\vspace{2cm}
+
+
+En général, les indépendances des couples $(X,Y)$, $(Y,Z)$ et $(X,Z)$ , n'impliquent pas l'indépendance du triplet $(X,Y,Z)$. 
+
+Exemple : considérons $X$ et $Y$ deux v.a. indépendantes de loi uniforme sur $\{0,1,...,9\}$. Notons $\dot +$ la sommation modulo $10$, par exemple $2\dot + 9=1$. Notons $Z=X \dot + Y$. On a $X\indep Y$, $X\indep Z$, $Y\indep Z$ mais $(X,Y,Z)$ n'est  pas indépendant, car $Z$ est une fonction de $(X,Y)$. 
+
+Démo :   Remarquons que  pour $a\in \{0,1,...,9\}$ on a  $\sum_{y=0}^{9} \psi(y\dot +a) = \sum_{y=0}^{9} \psi(y)$ (grâce au modulo).    Ainsi
+ \begin{alignat*}{1}
+  \Es[\ph(X) \psi(Z)]  &= \Es[ \ph(X) \psi(X\dot +Y)] \\
+  &= \frac 1 {10} \frac 1 {10} \sum_{x=0}^{9} \sum_{y =0}^{9} \ph(x) \psi(x \dot + y)  \\
+    &= \frac 1 {10} \frac 1 {10} \sum_{x=0}^{9}  \ph(x)  \sum_{y =0}^{9}  \psi(x \dot + y)  \\
+        &= \frac 1 {10} \frac 1 {10} \sum_{x=0}^{9}  \ph(x)  \sum_{y =0}^{9}  \psi( y)  \\
+ \end{alignat*}
+ En particulier en remplaçant $\ph$ par la fonction constante $1$, on voit que $Z$ suit aussi une loi uniforme sur $\{0,1,...,9\}$.   Et donc l'égalité ci-dessus peut s'écrire 
+ $
+ \Es[\ph(X) \psi(Z)] =\Es[\ph(X)] \, \Es[ \psi(Z)] 
+ $.
+ Donc $X \indep Z$.  Par symétrie $Y\indep Z$. Quant à l'indépendance entre $X$ et $Y$, elle est donnée par l'énoncé. \carre
+ 
+ 
+ 
+
+Par contre. L'indépendance de  $(X,Y)$ avec $Z$ et l'indépendance de $X$ avec $Y$ implique l'indépendance du triplet $(X,Y,Z)$. Démo:
+\begin{alignat*}{1}
+\Pr[ X\in dx , Y\in dy, Z\in dz  ]&= \Pr[ (X,Y) \in dx\times dy ,  Z\in dz ] \\
+&= \Pr[ (X,Y) \in dx\times dy] \, \Pr[  Z\in dz ] \\
+&= \Pr[X\in dx] \Pr[Y\in dy] \, \Pr[  Z\in dz ] 
+\end{alignat*}
+Exo :    Refaites cette preuve en utilisant le splitting.  
+
+
+\vspace{2cm}
+
+
+Exo : Vérifiez que la réciproque est vraie : si le triplet est indépendant alors ... 
+
+
+
+\vspace{2cm}
+
+
+
+\subsection{ Exemples à densité}
+
+
+Exo : considérons $(X,Y,Z)$ un vecteur aléatoire de $\co R^3$ dont la loi est donnée par
+$$
+\Pr[(X,Y,Z) \in C] = \int_{\co R^n}  1_C (x,y,z)  f(x)g(y) h(z) dx dy dz
+$$
+Vérifiez leur indépendance. 
+
+
+Remarque : Il existe une réciproque à cela : si $(X,Y,Z)$ admet une densité $F(x,y,z)$ alors $(X,Y,Z)$ sont indépendants si et seulement si $F$ se factorise en 3 fonctions d'arguments respectifs $x,y,z$. 
+
+
+Exemple: Considérons un point $(X,Y)\in \co R^2$ qui suit une loi uniforme sur le disque unité.  Est-ce que $X$ et $Y$ sont indépendants ? 
+
+\dessin
+
+
+Notons $(R,\Theta)$ les coordonnées polaires du point $(X,Y)$. Calculons leurs lois : 
+\begin{alignat*}{1}
+\Es[\ph(R,\Theta)]&= \frac 1 \pi \int_{\co R^2} \ph(\sqrt{x^2+y^2} , \arctan_2 (x,y ) )  1_{\{x^2+y^2<1 \}}  dx dy  \\
+&=   \frac 1 \pi\int_{\co R_+}    \int_{[0,2\pi]}    \ph(r , \theta ) )    1_{\{r<1 \}}   r\,       dr   d\theta  \\
+\end{alignat*}
+Alors ? ... 
+
+
+\subsection{Exemple mixte}
+
+Dans $\co R^2$. Considérons le segment $S_1$ reliant $(0,-1)$ à $(1,0)$. Let segment $S_2$ reliant $(-1,0)$ à $(0,1)$. Considérons $P$ un point uniforme sur $S_1 \cup S_2$. 
+
+
+Considérons $(K,L)$ les coordonnées de $P$ dans la base $(v_1,v_2)$ avec $v_1=(1,1)$ et $v_2=(-1,1)$. 
+
+
+\dessin  
+
+
+Quelle est la loi de $(K,L)$ ?  Pas besoin de calcul, votre intuition suffira. 
+
+\begin{tiny}
+$K$ et $L$ sont indépendants.  $K$ suit une loi uniforme sur $[-\frac 1 2, \frac 12]$ et $L$ suit $\frac 1 2 \de_{\frac 12 } + \frac 1 2  \de_{-\frac 1 2}$.
+\end{tiny}
+
+
+
+
+
+
+\subsection{Indépendance d'une famille infinie}
+
+Une famille infinie $(X_t)_{t\in \co T}$ est indépendante indépendante   lorsque pour $n$ et tout  $(t_1,...,t_n) \in \co T^n$, le vecteur  $(X_{t_1},...,X_{t_n})$ est indépendant. 
+Cette définition est compatible avec la caractérisation des lois des familles finie (cf. plus haut). 
+
+On dit qu'une suite de $X_1,...,X_n,...$ est i.i.d (indépendant et identiquement distribuée), lorsqu'elle est indépendante et que tous les $X_i$ ont même loi.  Typiquement, lorsqu'on observe un phénomène naturel plusieurs fois, dans des conditions semblables, mais à des instants espacés, les observations sont i.i.d.  Si ces observations sont des réels, on peut les moyenner, et l'on obtient alors ...  
+
+
+
+\begin{theoreme}[Loi Forte des Grands Nombres]. Soient $X_1,X_2,...$ une suite de v.a. i.i.d. Alors
+$$
+\frac 1 n (X_1 + ... + X_n )   \to \Es[X_1]   \eqno{(LFGN)}
+$$  
+\end{theoreme}
+
+
+Les observations ne sont pas toujours réelles ; ex: les  $(X_i)$ sont des nuages. Dans ce cas on peut moyenner le volume $\ph(X_i)$ de ces nuages :
+
+Soient $X_1,X_2,...$ une suite i.i.d. d'objets aléatoires à valeurs dans $E$. Soit $\ph:E \to R$ alors 
+$$
+\frac 1 n \Big (\ph(X_1) + ... + \ph(X_n)  \Big)   \to \Es[\ph(X_1)]
+$$
+
+
+Remarque :  Comme d'habitude, nous mettons quelques difficultés sous le tapis : Certaines lois $\mu$ ont des queues si lourdes, qu'on ne peut pas définir correctement $\Es[X_1] = \int x \mu(dx)$.  Ex :  la loi de Cauchy $\mu(dx ) = \frac 1 \pi  \frac 1{1+x^2} \, dx$.     Dans ce cas là, il ne faut pas espérer avoir (LFGN). 
+
+
+
+
+
+
+\subsection{Modélisation}
+
+
+En général, les indépendances sont données dans les énoncées, soit de manière explicite : <<considérons $X$ et $Y$ deux v.a. indépendantes ..>>, soit de manière implicite : << considérons $X$ le nombre de poules dans le poulailler et $Y$ la note de Simon à son devoir de math>>.  Si dans l'énoncé il n'est pas précisé que Simon joue avec les poules au lieu de réviser ses maths, alors on peut raisonnablement supposer que $X$ et $Y$ sont indépendants.  
+
+Exo : Y-a-t-il indépendance entre les v.a. décrites. 
+\begin{itemize}
+\item L'indice de masse corporelle d'une maman babouin et le nombre de ses enfants.  
+\item   La température à New York le 7 novembre 2000 et la température à Strasbourg le 1 janvier 1900. 
+\item Le nombre de sardines et le nombre de homards dans l'océan Atlantique. 
+\item Les notes de Robert à ses examens et  les notes de sa petite amie.   
+\end{itemize}
+Remarque : il n'y a pas toujours de réponse claire à ce genre de question. Cela dépend beaucoup du degré de précision désiré. Les modélisations simples supposent de nombreuses indépendances, ce qui facilite les calculs de lois. Les modélisations compliquées  supposent de nombreuses corrélations ce qui demande l'estimation de plus de paramètres. 
+
+
+
+\subsection{Indépendance et dépendance fonctionnelle}
+
+Cette partie  met le doigts sur une confusion très répandue.  Beaucoup de gens pensent à tord que :
+
+<<$X$ et $Y$sont indépendants>>  \newline
+est  synonyme de : \newline
+ <<$X$ et $Y$ ne sont reliées par aucune fonction>>. 
+
+
+
+C'est vrai dans un sens :  si $X=f(Y)$ ou bien $Y=g(X)$ alors $X$ et $Y$ ne sont pas indépendants (à moins que l'un des deux ne soit constant). 
+
+Par contre la réciproque  est fausse. Construisons deux v.a. $X$ et $Y$ qui ne sont pas indépendantes, et pour lesquelles il n'existe aucune fonction  $f$ vérifiant $X=f(Y)$, ni de fonction $g$ vérifiant $Y=g(X)$. Pour cela considérons $X$ à valeurs dans $\{a,b\}$ et $Y$ à valeurs dans $\{c,d\}$ dont les probabilités d'apparitions sont données par:
+$$
+\begin{array}{c|c|c}
+	& a & b  \\
+	\hline
+c	& \frac 18 & \frac 18 \\
+\hline
+d	& \frac 48 & \frac 2 8 \\
+\end{array}
+$$
+Démontrez que $X$ et $Y$ satisfont les propriétés souhaitées. 
+Aide : 
+\begin{itemize}
+\item Vérifiez que $X$ et $Y$ ne sont pas indépendantes en calculant les lois marginales. 
+\item  si $X=f(Y)$ alors le tableau de la loi doit comporter au moins  deux  zéros  ... 
+\item si $Y=g(X)$ alors le tableau de la loi doit comporter au moins  deux zéros ... 
+\end{itemize}
+
+\dessin
+
+
+\section{Loi conditionnelle}
+
+
+
+\subsection{Probabilité "désintégrée" }
+
+Etant donnée une probabilité $\Pr[ \cdot  ]$   et un objet aléatoire $X\in E$, il existe une (presque)-unique famille de probabilité $(\Pr[\cdot / X=x]: x\in E)$   qui vérifie les axiomes suivants:
+$$ 
+\Pr[X=x/X=x] =1 \eqno{(Concentration)}
+$$ 
+$$ 
+\Pr[ \cdot ] = \int_E \Pr[\cdot /X=x]  \Pr[X\in dx ]   \eqno{(Recollement)}
+$$
+
+Les mesures de probabilités $\Pr[\cdot / X=x]$ s'appellent des mesures de probabilités conditionnelles.  Mais il y a une autre appellation très parlante  : La famille $(\Pr[\cdot / X=x]: x\in E)$ est une désintégration de $\Pr[\cdot]$ selon $X$.      En d'autres termes :  la probabilité conditionnelle est un découpage de $\Pr$ selon les lignes de niveau de $X$. La formule (Recollement) permet de recoller les morceaux.  
+
+
+Ensuite on note $\Es[\cdot / X=x]$ l'espérance calculée avec $\Pr[\cdot / X=x]$. De l'axiome de recollement on déduit :
+$$ 
+\Es[ \cdot ] = \int_E \Es[\cdot /X=x]  \Pr[X\in dx ]   
+$$
+ 
+Exemple : Considérons un objet aléatoire discret $X$.  On a alors :
+$$
+\Pr[\cdot  / X=x] =   \frac{ \Pr[  \cdot   \cap   \{X=x \}]}{\Pr[X=x]} 
+$$
+Exo : Vérifiez   les axiomes (Concentration) et (Recollement) 
+
+
+
+
+\subsection{Loi conditionnelle}
+
+Considérons une désintégration $(\Pr[\cdot / X=x]: x\in E)$. Considérons $Y\in F$ un autre objet aléatoire. Considérons $\Pr[Y\in dy / X=x]$, la loi de $Y$ sous $\Pr[\cdot/X=x]$. 
+
+{\bf propriété : } 
+$$
+\Pr[X\in dx , Y\in dy] = \Pr[Y\in dy / X = x] \, \Pr[X\in dx] \eqno{(Jointe \leftrightarrow Conditionnelle)}
+$$
+ Démo : prenons une fonction test $\ph$:
+ \begin{alignat*}{2}
+ \Es[\ph(X,Y)]&= \int \Es[\ph(X,Y) / X=x ]\, \Pr[X\in dx] \qq && \hb{(Recollement)} \\
+ &= \int \Es[\ph(x,Y) / X=x ]\, \Pr[X\in dx]  && \hb{(Concentration)}\\
+  &= \int  \int  \ph(x,y) \Pr[Y\in dy / X=x ]\, \Pr[X\in dx] &&\qq \hb{(FGE)}\\
+ \end{alignat*}
+Puisque c'est vrai sur toutes les fonctions tests, la propriété est vraie. \carre
+ 
+ 
+ 
+
+Exemple : Considérons un couple aléatoire $(X,Y)$ admettant une densité $f_{X,Y}(x,y)$.    Notons $f_X$ la densité de $X$ seul.
+ On peut alors définir
+$$
+\Pr[Y \in dy / X=x] =  \frac {f_{X,Y} (x,y) } {f_X(x) }  dy
+$$
+Vérifiez que c'est bien une mesure de probabilité en $dy$ (c.à.d. qu'en intégrant sur les $y$ on trouve 1).   Vérifiez  la propriété (Jointe $\leftrightarrow$Conditionnelle)
+
+
+
+
+
+\subsection{Exemple de modélisation à deux couches}
+
+Quand on modélise un phénomène aléatoire en plusieurs couches de hasard, on utilise  des conditionnements : 
+
+Considérons $N$ le nombre de sardines dans l'atlantique, qui suit une loi de Poisson de paramètre $\La$, où $\La$ est la température de l'eau, qui suit une loi exponentielle de paramètre $1$.    Essayons de déterminer la loi du couple $(N ,\La)$. 
+
+Exo : Il y a plus d'étapes que nécessaire dans le calcul ci-dessous. Mais c'est pour vous permettre d'écrire  pour chaque égalité, si l'on utilise les formules (Recollement),  (Concentration),    (FGE), ou bien une donnée de l'énoncé.
+\begin{alignat*}{1}
+\Es[\ph(\La ,N )]& = \int  \Es[\ph(\La,N) / \La = \la   ] \Pr[\La \in d\la ] \\
+& = \int  \Es[\ph( \la  , N )  / \La=\la   ]  \Pr[\La \in d\la ]   \\ 
+& = \int  \Es[\ph( \la  , N )  / \La=\la   ]   e^{- \la } 1_{\{\la >0\}}\, d\la  \\ 
+& = \int \int   \ph( \la  , y )   \Pr[N\in dy / \La=\la]   e^{- \la } 1_{\{\la >0\}}\, d\la  \\ 
+& = \int \int   \ph( \la  , y )     \Big( \sum_n  e^{- \la }  \frac  {\la^n}{n !}       \de_n(dy)      \     e^{- \la } 1_{\{\la >0\}}    d\la  \Big)   \\ 
+\end{alignat*}
+Donc la loi de $(N,\La)$ c'est tout ce qui apparait dans la grande parenthèse : c'est une loi mixte :  un mélange de Dirac $\de_n(dy)$ et de Lebesgue $d\la$.  On peut supprimer une intégrale grâce aux Dirac~:
+\begin{alignat*}{1}
+\Es[\ph(\La, N )] & = \int  \sum_n   \ph( \la,  n  )      \frac  {\la^n}{n !}       e^{- 2\la } 1_{\{\la >0\}}\, d\la    
+\end{alignat*}
+
+Déterminons maintenant la loi de $N$ seul: 
+\begin{alignat*}{1}
+\Es[\ph(N )]
+& = \int  \sum_n   \ph(   n  )      \frac  {\la^n}{n !}       e^{- 2\la } 1_{\{\la >0\}}\, d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {n !}    \int       {\la^n}       e^{- 2\la } 1_{\{ \la >0\}}\, d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {n !}    \int       \frac {\la^n}{2^n}       e^{-\la } 1_{\{ \la >0\}}\,  \frac 1 2 d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {2}          \frac {1}{2^n}      = \int\ph(x) \sum_n \frac 12 \frac 1 {2^n} \de_n(dx)    
+\end{alignat*}
+Dingue : nous constatons que $N$ suit  une loi géométrique de paramètre $\frac 12$. 
+
+
+
+
+\subsection{Conditionnement en situation d'indépendance}
+
+
+ L'indépendance entre $X$ et $Y$   signifie  que la probabilité  que  $Y$ fasse ceci ou cela  n'est pas influencée par les valeurs que prend $X$ (et on peut inverser $X$ et $ Y$ dans cette phrase). 
+ 
+Mathématiquement : 
+$$
+X\indep Y \qq  \equi \qq   \fo x \ \Pr[Y\in dy / X=x ]  = \Pr[Y\in dy]
+$$
+
+Conséquence : Quand $X\in E$ et $Y$ sont indépendants, on a :
+$$
+\Es[\ph(X,Y)] = \int_E \Es[\ph(x,Y)]  \Pr[X\in dx] 
+$$
+Mais sans l'indépendance il faut rajouter ...
+
+
+\subsection{Enchainement de conditionnement}
+
+Considérons un triplet aléatoire $(X,Y,Z)$. On a : 
+\begin{alignat*}{1}
+\Pr[ Z  \in dz  ,Y \in dy   , X\in dx  ] &= \Pr  \Big[ Z \in dz  \Big /   Y = y, X=x    \Big ] \    \Pr[Y\in dy \Big / X=x ]       \  \Pr[X\in dx ] 
+\end{alignat*}
+
+
+
+Maintenant vous êtes capables de calculer la loi du nombre de sardines dans le modèle suivant : 
+
+$Z$ est le nombre de sardines dans l'atlantique, qui suit une loi de Poisson de paramètre $Y$, où $Y$ est la température de l'eau, qui suit une loi exponentielle de paramètre $X$, qui suit une loi uniforme sur $[0,1]$. 
+
+
+
+
+
+\subsection{Indépendance conditionnelle}
+
+Un exemple suffit à comprendre cette notion : 
+
+<<Considérons $N$ le  nombre de sardines, et $M$ le nombre de homards, et $\La$ la température moyenne pour l'océan Atlantique.   Supposons que $N$ suive une loi de Poisson de paramètre $\La$. Que $M$ suive une loi de Poisson de paramètre $\La^2$.  Supposons que $\La$ suive une loi exponentielle de paramétre $1$.     >>
+
+
+Dans cette énoncé $M$ et $N$ ne sont pas indépendants puisqu'ils sont tous deux influencés par la température de l'eau (plus elle est chaude et plus ils y a de sardines et de homards). Par contre, à température fixée $\La=\la$, les sardines et les homards ne se faisant pas concurrence, les v.a. $M$ et $N$ sont indépendance.  Donc plus précisément :
+$$
+   \Pr[M=m, N=n / \La=\la] =\Pr[M=m / \La=\la]\, \Pr[ N=n / \La=\la] 
+$$
+Ainsi, l'hypothèse implicite de l'énoncé, c'est que $M$ et $N$ sont indépendants conditionnellement à $\La$. 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+\section{Enfonçons le clou sur  la loi}
+
+En guise de conclusion, voici une série de faits, pour vous aider à ne jamais confondre la notion d'objet aléatoire et la notion de loi.
+\begin{itemize}
+
+\item Soient $X_1,X_2,X_3,...$ les appels successifs de la fonction rand(). Toutes ces variables ont  la même loi $1_{[0,1]} dx$,  mais elles sont  toutes \underline{différentes} ; et même mieux, elles sont indépendante. D'ailleurs 
+$$
+\Pr[X_i=X_j]= \int_{[0,1]^2} 1_{x=y} \,   dx dy  = 0 
+$$
+ Les  $1-X_i$ sont d'autres v.a. de même loi.     Si on considère les $-\log(X_i)$   ils ont une autre loi (nous verrons qu'elles suivent des lois exponentielles).    
+
+\item Considérons un algorithme qui fait appel plusieurs fois à la fonction rand(). Par exemple :
+\begin{itemize}
+\item Si rand() < 1/2 alors return   floor(rand()*6)+1  
+\item Sinon return 10*rand() 
+\end{itemize}
+(Chaque rand() ci-dessus correspond à un nouveau tirage).  En lançant deux fois cet algo on obtient deux v.a. indépendantes, mais de même loi. Exo: écrivez cette loi. Mais oui, vous savez le faire.  
+
+
+\item Une variation sur le l'item précédent :   Soient deux vecteurs aléatoires $(X_1,Y_2,Z_2)$ et $(X_2,Y_2,Z_2)$ sont indépendants et de même loi. Alors $f(X_1,Y_1,Z_1)$ et $f(X_2,Y_2,Z_2)$ sont indépendants et de même loi.  
+
+\item Nous avons déjà signalé que: lorsque l'on observe un phénomène naturel aléatoire, à des instants éloignés, mais dans des conditions identiques, les observations sont i.i.d. Supposons par exemple que notre observation  $X_i$ est la températures à Strasbourg  le 14 juillet de l'année $1900 + i $.            Quelle est la loi de $X_1$ ? a priori elle est donnée par notre modélisation.  Mais comment construit-t-on le modèle ?  En général, on a une petite idée de ce que devrait être la loi de $X_1$ : mais pour ne pas être trop arbitraire, on se donne une famille de modèle possible, une famille paramétrée.  Par ex:  $X_1$ suit une loi Gaussienne de moyenne $m$ (c'est le paramètre que l'on ne fixe pas) :
+$$
+\Pr[X_1\in dx] = \frac 1 {\sqrt{2\pi}} e^{-\frac 12 (x-m)^2} \, dx
+$$ 
+Ensuite, on cale notre modèle en estimant le  paramètre.  Dans notre exemple on estime $m$ en moyennant un grand nombre de $X_i$ :
+$$
+\hat m = \frac 1 n \sum_{i=1}^n X_i 
+$$
+ La loi des grands nombres (ou le bon sens) nous indique que $\ha m \eqsim m$.  Une fois le modèle calé, on peut le faire parler, en calculant des quantités comme par exemple l'entropie $\Es[X_1 \log ( X_1)]$, qui nous permet de faire des prévisions météorologiques.  
+   Voilà, nous venons de faire un petit pas vers les statistiques. 
+\end{itemize}
+
+
+
+
+
+
+\section{ANNEXE : le théorème de transfert}
+
+
+
+Plaçons nous dans un cadre abstrait.   Considérons une application $\theta : E \to F$. 
+
+Notation : Si $B\subset F$ on note $\{\th \in B\} = \{x \in E : \theta (x) \in B  \}\subset E$.  
+
+Considérons une loi $\mu$ sur $E$.    Définissons la mesure $\mu_\theta $ sur $F$ par 
+$$
+\fo B \subset F \ \ \mu_\theta(  B )  = \mu ( \{ \theta  \in B \}  ) 
+$$  
+(une autre bonne notation pour $\mu_\theta (dy) $ c'est $\mu(\th \in dy )$ ). 
+
+\begin{theoreme} [de transfert]
+$$
+\int_E  \ph( \theta (x) ) \ \mu(dx)  = \int_F \ph( y )  \mu_\th (  dy) 
+$$
+\end{theoreme}
+
+Démonstration. Supposons que $\ph =1_B$ pour $B\subset F$. Dans ce cas, l'égalité du théorème est simplement la définition de $\mu_\th$. Supposons que $\ph $ est une fonction étagée. Dans ce cas, l'égalité du théorème se déduit par linéarité. Le cas général se déduit par passage à la limite, car toute fonction $\ph$ est limite de fonctions étagées. \carre 
+
+
+Considérons les applications : 
+ $$
+\Om \xrightarrow{X} E   \xrightarrow{\ph}  \co R
+$$
+On ajoute une mesure proba  $\Pr[d\om]$ sur $\Om$. Ce qui nous donne $\Pr_X$ une mesure de proba sur $E$, et même $\Pr_{\ph(X)}$ une mesure de proba sur $\co R$ : 
+$$
+(\Om,\Pr)  \xrightarrow{X} (E,\Pr_X[dx])    \xrightarrow{\ph} ( \co R,\Pr_{\ph(X)})
+$$
+Le théorème de transfert nous donne alors
+$$
+\int _\Om \ph(X(\om))\, \Pr[d\om ] =  \int _{E}  \ph(x)\, \Pr_X[dx] = \int _{\co R}  y\, \Pr_{\ph(X)} [dy]
+$$
+Idem avec des notations plus probabilistes  (donc mieux) :
+$$
+\Es[ \ph(X) ] =  \int _{E}  \ph(x)\, \Pr[X\in dx] = \int _{\co R}  y\, \Pr [\ph(X) \in dy]
+$$
+
+
+
+Exo :  Considérez la situation suivante : 
+$$
+\Om \xrightarrow{X} E   \xrightarrow{\ph} F \xrightarrow{\psi} \co R
+$$
+ Considérez une mesure de probabilité $\Pr$ sur $\Om$. Transportez-la sur les autres ensembles. Ecrivez plein d'égalités d'intégrales. 
+
+
+\vspace{4cm}
+
+
+
+
+
+\section{ANNEXE : un peu plus de théorie de la mesure }
+
+Nous avons dit que, pour être une mesure, il suffisait à $\mu$ de vérifier l'additivité : 
+$$
+A\subset B = \emptyset  \imp \Pr[ A \cup B ] = \Pr[A] + \Pr[B] \eqno {(Additivite)}
+$$
+Mais pour faire plus de théorie, le bon axiome, c'est la $\si$-additivité : pour toute famille $(A_i)$ de parties de $E$ disjointes~:
+$$
+\mu[\cup_i A_i] = \sum_i \mu[A_i] \eqno{(\si Additivite)}
+$$
+Cette axiome est équivalent à : pour toute famille $(B_i)$ de parties, avec $B_i \subset B_{i+1}$, on a 
+$$
+\mu[\cup_i B_i] =\lim_i \mu[B_i] \eqno{(continuite \uparrow )  }
+$$
+
+Exo : démontrez cette équivalence. Indice :  trouvez comment passer d'une suite de parties disjointes à une suite de parties croissantes. Et vise-versa. 
+
+
+L'axiome $(continuite \uparrow )$ peut se réécrire avec des espérances:   Si  $(\ph_i)$ est une suite croissante de fonctions indicatrices, alors
+$$
+\int \lim_i \ph_i\, \mu = \lim_i \int \ph_i \,\mu 
+$$
+(oui, c'est la même chose car si $\ph_i=1_{B_i}$ alors $\lim_i \ph_i=1_{\cup_i B_i}$).
+
+
+On se convaint facilement que cette dernière propriété, se généralise :
+Si  $(\ph_i)$ est une suite croissante de fonctions positives, alors
+$$
+\int \lim_i \ph_i \,\mu = \lim_i \int \ph_i \,\mu 
+$$
+(on a remplacé "indicatrice" par "positive")
+
+Question : peut-on enlever le mot "croissante" dans la propriété ci-dessous. La réponse est non. Pour le voir, considérons $\ph_i=1_{[i,\infty[}$, qui forme une suite décroissante. On a
+$$
+\int \lim_i \ph_i \mu =  \int 0 \, \mu = 0   <     \lim_i \int \ph_i \mu =\lim_i +\infty = +\infty
+$$
+
+Ainsi, on ne peut pas toujours inverser  les limites et les intégrales.  Mais pour se faire, il suffit d'éviter les problèmes d'intégrale infinie : 
+
+\begin{theoreme}[Convergence dominée] soit $\ph_i$ une suite de fonctions  sur $E$.  Soit $\mu$ une mesure sur $E$. Supposons qu'il existe une fonction $f\geq 0$ telle que $\fo i |\ph_i| < f$ et tel que $\int f \, \mu <\infty$ ($f$ domine les $\ph_i$). Dans ce cas
+$$
+\int \lim_i \ph_i \,\mu = \lim_i \int \ph_i \,\mu 
+$$
+\end{theoreme}
+Ce théorème est très utile en  analyse et en probabilités.   Selon le niveau d'application des modélisations, il peut être utile ou pas.   Mais dans tous les cas, un tel théorème n'est possible qu'en supposant la ($\si$Additivité) des mesures. La simple (Additivité) ne suffit pas. 
+
+
+
+
+  
+
+
+
+
+\end{document}
+
+
+
+\subsection{Trajectoire aléatoire, chaine de Markov}
+
+Un processus aléatoire (ou trajectoire aléatoire), est un objet aléatoire du type 
+  $X=(X_t)_{t\in \co T}$ où chaque $X_t$ prend ces valeur dans un ensemble $S$  et où le temps $\co T$ peut-être $\co R_+$ ou $\co N$.   Ainsi l'espace d'arrivé de $X$ c'est $E=S^{\co T}$. 
+
+La loi de la trajectoire $X$ est caractérisée par la loi de tous les vecteurs aléatoires que l'on peut extraire de la trajectoire, c.à.d tous les $(X_{t_1},..., X_{t_n}) \in \co S^n$. Donc pour décrire la loi d'un processus, il suffit de donner, pour chaque $(t_1,...t_n)$ une loi 
+$
+\mu_{t_1,...t_n} (dx_1,...,dx_n) 
+$
+sur $S^n$. Mais bien entendue, on ne peut pas choisir ces lois n'importe comment. Elles doivent vérifier la conditions de "compatibilités" suivantes
+$$
+\int_{x_i \in \co S}  \mu_{t_1,.., t_i ,...t_n}  (dx_1,...,dx_i,...,dx_n) =  \mu_{t_1,.., t_{i-1},t_{x_{i+1}} ,...t_n}   (dx_1,...,dx_{i-1},dx_{i+1},...,dx_n) \eqno{(Compatibilite)}
+$$  
+Bien sur que cette compatibilité est nécessaire puisque 
+$$
+\Pr[X_{t_1}\in dx_1, ..., X_{t_{i-1}} \in dx_{t_{i-1}},  X_{t_i} \in S ,X_{t_{i+1}} \in dx_{t_{i+1}},  ... ] = \Pr[X_{t_1}\in dx_1, ..., X_{t_{i-1}} \in dx_{t_{i-1}}, X_{t_{i+1}} \in dx_{t_{i+1}},  ... ] 
+$$
+Le fameux théorème de Kolmogorov indique que cette compatibilité est aussi suffisante pour bien définir la loi d'un processus. 
+
+Quand $S$ est fini ou dénombrable,  les lois sur $S^n$ sont décrites par des poids $w(x_1,...,x_2)$ et la (Compatibilité) devient :
+$$
+\sum_{x_i \in \co S}  w_{t_1,.., t_i ,...t_n}  (x_1,...,x_i,...,x_n) =  w_{t_1,.., t_{i-1},t_{x_{i+1}} ,...t_n}   (x_1,...,x_{i-1},x_{i+1},...,x_n)
+$$
+Quand $\co T =\co N$, on peut se contenter de travailler avec les familles de temps $(0,1,...,n)$, pour tout $n$. Et on peut se contenter de la compatibilité suivante:
+$$
+\int_{x_n} \mu_{0,...,n-1,n} (dx_0,....,dx_{n-1},dx_n) = \mu_{0,...,n-1} (dx_0,...,dx_{n-1})
+$$
+  
+
+
+
+Exemple (chaine de Markov). On considère $\co T=\co N$.  On considère $S$ un ensemble fini ou dénombrable. On se donne une matrice $P(i,j)$ avec $i,j\in S$. On se donne une mesure $\pi$ sur $S$.   Pour tout $n$ on définit les poids
+$$
+w_{0,..,n-1,n}(x_0,...,x_{n-1},x_n) =   \pi(x_0)  P(x_0,x_1) ... P(x_{n-1},x_n) 
+$$
+
+Exo : Quelle condition sur $P$ est nécessaire pour que les mesures $f_{0,..,n-1,n}(x_0,...,x_{n-1},x_n) \de_{x_0} ... \de_{x_{n-1}}\de_{x_n}$  soient compatibles. Aide :  en utilisant le fait que le temps $\co T$ et l'espace $S$ sont discrets, la compatibilité se traduit par : 
+$$
+\sum_{x_n} w_{0,..,n-1,n}(x_0,...,x_{n-1},x_n) = ...  
+$$
+
+\vspace{2cm}
+
+Par le théorème de Kolmogorov, lorsque la condition que vous venez de découvrir est satisfaite, on peut définir un processus $X$ vérifiant :
+$$
+\Pr[X_0=x_0,...,X_n=x_n] =  \pi(x_0)  P(x_0,x_1) ... P(x_{n-1},x_n) 
+$$
+On appelle ce processus une chaine de Markov de mesure initiale $\pi$ et de matrice de transition $P$. 
+
+   
+   
+   
+   
+
+\subsection{Variation sur  l'espérances conditionnelles, martingale}
+
+Considérons $Y$ une v.a.  et $X$ un objet aléatoire.   Nous présentons ici $\Es[Y / X]$ qui est aussi appelé l'espérance conditionnelle.   
+C'est un concept  est très souvent introduit en Master 1, mais en général, sans passer par la  loi conditionnel comme nous le faisons.  
+
+
+Notons $\Es_x[Y]$ pour $\Es[Y / X=x]$. Notons  que $\Es_x[Y]$  c'est une constante (pas d'aléa). 
+
+Notons $\Es[Y / X]=\Es_X[Y]$. Notons que c'est un réel aléatoire, et à ce titre, on peut calculer son espérance. On a : 
+$$
+\Es\Big[   \Es[Y / X] \Big] = \Es[Y]
+$$
+Ce découle de (Recollement):
+$$
+\Es\Big[   \Es[Y / X] \Big]  = \Es\Big[   \Es_X[Y] \Big]  = \int \Es_x[Y] \, \Pr[X\in dx] =  \int \Es[Y / X=x] \, \Pr[X\in dx] =\Es[Y]
+$$
+
+
+
+
+
+Exemple : Martingale. Dans la définition de l'espérance conditionnelle, on c'est autorisé à prendre pour  $X$ un objet aléatoire, par exemple on peut choisir $X=(X1,X_2,...,X_n)\in \co R^n$ et définir $\Es[Y/X_1,...,X_n]$ (=$\Es[Y/X_1=x_1,...,X_n=x_n]$ pris en $x_1=X_1,...,X_n=X_n$. 
+
+Considérons $X_1,X_2,...$ une suite de v.a. On dit que c'est une martingale lorsque $\Es[X_{n+1}/X_n,...,X_1 ] = X_n$. Moralement, une martingale reste constante "en moyenne". 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remarque (passez éventuellement).  Pour passer de (DE) à (FGE) on fait une sorte de changement de variable : 
+\begin{alignat*}{2}
+\Es[\ph(X)] & =   \int_{\co R}  y  \Pr[\ph(X) \in dy] \qq \qq &&\hb{Par (DE)} \\
+\Es[\ph(X)] & =   \int_{\co R}  y  \Pr[X \in  \ph^{-1} (dy)] \\
+\Es[\ph(X)] & =   \int_{E}  \ph(x)  \Pr[X \in  dx]   && \hb{ en posant $y=\ph(x), \ph^{-1}(dy) = dx$ }
+\end{alignat*}
+
+
+
+
+Les lois conditionnelles peuvent être définie pour n'importe quel objet aléatoire, y compris les couples aléatoires.  En particulier nous pouvons remplacer $Y$ par $(Z,Y)$ et donc calculer la loi de $(Z,Y) , X$ par conditionnement : 
+
+\begin{alignat*}{1}
+\Pr[ (Z  \in dz  ,Y \in dy )  , X\in dx  ] &= \Pr\Big[ Z \in dz  ,Y\in dy     \Big / X=x \Big ] \  \Pr[X\in dx ] \\
+\end{alignat*}
+Notons $\Pr_x[ \cdot ]=\Pr[\cdot / X=x]$. On a 
+\begin{alignat*}{1}
+ \Pr_x \Big[ Z \in dz  ,Y \in dy    \Big ]=  \Pr_x \Big[Z \in dz  \Big/   Y = y    \Big ] \ \Pr_x[Y\in dy]
+\end{alignat*}
+Et il est relativement intuitif que savoir $Y=y$ sachant déjà $X=x$ c'est pareil que savoir $Y=y$ et $X=x$. Ainsi
+$$
+ \Pr_x \Big[ Z \in dz /   Y = y    \Big ] =  \Pr  \Big[ Z \in dz  \Big /   Y = y, X=x    \Big ]
+ $$
+
+
+

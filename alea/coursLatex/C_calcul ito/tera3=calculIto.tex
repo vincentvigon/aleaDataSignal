@@ -1,0 +1,481 @@
+
+\documentclass{article}
+
+
+\input /Users/vigon/visible/MesRacoursis2015
+
+
+
+\title{TERA3 :  Conditionnement.  Calcul stochastique d'Ito}
+
+
+% Mettre à 1 pour cacher les parties, à 0 pour les faire apparaitre. 
+\definecolor{cache}{gray}{0}
+%COMMENTER LES DEUX LIGNES SUIVANTES POUR ajouter LES PARTIES ENCADREES
+\def\pournous{\comment} 
+\def\endpournous{\endcomment}
+
+
+\begin{document}
+\maketitle
+
+
+  \section{Loi conditionnelle}
+
+
+
+\subsection{Probabilité "désintégrée" }
+
+Etant donnée une probabilité $\Pr[ \cdot  ]$   et un objet aléatoire $X\in E$, il existe une (presque)-unique famille de probabilité $(\Pr[\cdot / X=x]: x\in E)$   qui vérifie les axiomes suivants:
+$$ 
+\tromm{\Pr[X=x/X=x] =1}    \eqno{(Concentration)}
+$$ 
+$$ 
+\Pr[ \cdot ] = \int_E     \Pr[\cdot /X=x]  \tromm{ \Pr[X\in dx ]}   \eqno{(Recollement)}
+$$
+
+Les mesures de probabilités $\Pr[\cdot / X=x]$ s'appellent des mesures de probabilités conditionnelles.  Mais il y a une autre appellation très parlante  : La famille $(\Pr[\cdot / X=x]: x\in E)$ est une désintégration de $\Pr[\cdot]$ selon $X$.      En d'autres termes :  la probabilité conditionnelle est un découpage de $\Pr$ selon les lignes de niveau de $X$. La formule (Recollement) permet de recoller les morceaux.  
+
+
+Ensuite on note $\Es[\cdot / X=x]$ l'espérance calculée avec $\Pr[\cdot / X=x]$. De l'axiome de recollement on déduit :
+$$ 
+\Es[ \cdot ] = \int_E \Es[\cdot /X=x] \tromm{ \Pr[X\in dx ]   }
+$$
+ 
+
+\subsection{Loi conditionnelle}
+
+Considérons une désintégration $(\Pr[\cdot / X=x]: x\in E)$. Considérons $Y\in F$ un autre objet aléatoire. Considérons $\Pr[Y\in dy / X=x]$, la loi de $Y$ sous $\Pr[\cdot/X=x]$. 
+
+{\bf propriété : } 
+$$
+\Pr[X\in dx , Y\in dy] = \Pr[Y\in dy / X\in dx] \, \Pr[X\in dx] \eqno{(Jointe \leftrightarrow Conditionnelle)}
+$$
+EXO : dans la démo suivante indiquez quelle axiome ou propriété on utilise à chaque ligne.
+ 
+ Démo : prenons une fonction test $\ph$: 
+ \begin{alignat*}{2}
+ \Es[\ph(X,Y)]&= \int \Es[\ph(X,Y) / X=x ]\, \Pr[X\in dx] \qq &&    \hb{(\tro{Recollement})} \\
+ &= \int \Es[\ph(x,Y) / X=x ]\, \Pr[X\in dx]  && \hb{(\tro{Concentration})}\\
+  &= \int  \int  \ph(x,y) \Pr[Y\in dy / X=x ]\, \Pr[X\in dx] &&\qq \hb{(\tro{FGE \ \ \ \ \ \ \  \ \ \ \ \ \ \ })}\\
+ \end{alignat*}
+Puisque c'est vrai sur toutes les fonctions tests, la propriété est vraie. \carre
+ 
+ 
+ 
+
+\subsection{Exemple de modélisation à deux couches}
+
+Quand on modélise un phénomène aléatoire en plusieurs couches de hasard, on utilise  des conditionnements : 
+
+Considérons $N$ le nombre de sardines dans l'atlantique, qui suit une loi de Poisson de paramètre $\La$, où $\La$ est la température de l'eau, qui suit une loi exponentielle de paramètre $1$.    Essayons de déterminer la loi du couple $(N ,\La)$. 
+
+Exo : Il y a plus d'étapes que nécessaire dans le calcul ci-dessous. Mais c'est pour vous permettre d'écrire  pour chaque égalité, si l'on utilise les formules (Recollement),  (Concentration),    (FGE), ou bien une donnée de l'énoncé.
+\begin{alignat*}{2}
+\Es[\ph(\La ,N )]& = \int  \Es[\ph(\La,N) / \La = \la   ] \Pr[\La \in d\la ]\qq &&    \hb{(\tro{XXXXXXXXXXX})}  \\
+& = \int  \Es[\ph( \la  , N )  / \La=\la   ]  \Pr[\La \in d\la ] \qq &&    \hb{(\tro{XXXXXXXXXXX})}   \\ 
+& = \int  \Es[\ph( \la  , N )  / \La=\la   ]   e^{- \la } 1_{\{\la >0\}}\, d\la\qq &&    \hb{(\tro{XXXXXXXXXXX})}   \\ 
+& = \int \int   \ph( \la  , y )   \Pr[N\in dy / \La=\la]   e^{- \la } 1_{\{\la >0\}}\, d\la \qq &&    \hb{(\tro{XXXXXXXXXXX})}  \\ 
+& = \int \int   \ph( \la  , y )     \Big( \sum_n  e^{- \la }  \frac  {\la^n}{n !}       \de_n(dy)      \     e^{- \la } 1_{\{\la >0\}}    d\la  \Big) \qq &&    \hb{(\tro{XXXXXXXXXXX})}    
+\end{alignat*}
+Donc la loi de $(N,\La)$ c'est tout ce qui apparait dans la grande parenthèse : c'est une loi mixte :  un mélange de Dirac $\de_n(dy)$ et de Lebesgue $d\la$.  On peut supprimer une intégrale grâce aux Dirac~:
+\begin{alignat*}{1}
+\Es[\ph(\La, N )] & = \int  \sum_n   \ph( \la,  n  )      \frac  {\la^n}{n !}       e^{- 2\la } 1_{\{\la >0\}}\, d\la    
+\end{alignat*}
+
+Déterminez maintenant la loi de $N$ seul: 
+\begin{grostro}
+\begin{alignat*}{1}
+\Es[\ph(N )]
+& = \int  \sum_n   \ph(   n  )      \frac  {\la^n}{n !}       e^{- 2\la } 1_{\{\la >0\}}\, d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {n !}    \int       {\la^n}       e^{- 2\la } 1_{\{ \la >0\}}\, d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {n !}    \int       \frac {\la^n}{2^n}       e^{-\la } 1_{\{ \la >0\}}\,  \frac 1 2 d\la    \\ 
+& =  \sum_n   \ph(  n  )  \frac 1   {2}          \frac {1}{2^n}      = \int\ph(x) \sum_n \frac 12 \frac 1 {2^n} \de_n(dx)    
+\end{alignat*}
+\end{grostro}
+Dingue : nous constatons que $N$ suit  une loi \tro{ géométrique de paramètre $\frac 12$. }
+
+
+
+\section{Début du calcul d'Ito }
+
+\subsection{Mouvement brownien dans une filtration}
+
+On appellera mouvement brownien dans la filtration $F_t$ une trajectoire $W_t$ telle que 
+\begin{itemize}
+\item $t \to W_t$ est continue. 
+\item pour tout $s,t$, $W_{t+s}-W_t$ est \tro{ indépendant} de $F_t$.
+ \item pour tout $s,t$, $W_{t+s}-W_t$ suit une loi   \tro{normale centrée de variance $s$. }
+\end{itemize}
+ Remarque :  les mouvements browniens sont aussi appelés "processus de Wiener", d'où la lettre $W$.  Mais cette lettre nous rappelle aussi qu'ils oscillent beaucoup.  En particulier ils ne sont pas dérivables (vous observerez les simulations). 
+
+
+\section{Equation différentielle}
+
+\subsection{Simple}
+ 
+Considérons une trajectoire $a_t$.  L'équation différentielle
+ $$
+   \frac {dX_t}{dt}   =a_t  
+  $$
+ s'écrit plus joliment
+ $$
+ dX_t = a_t \, dt
+ $$
+se résout approximativement avec le schéma d'Euler : on se donne un point de départ $x_0$ et une suite de temps $t_i$ très serrés et l'on pose 
+$$
+X_{t_{i+1}} =   \tromm{X_{t_i} +    a_{t_i} (t_{i+1} -t_i) }
+$$
+
+
+\subsection{Avec une excitation brownienne}
+
+Considérons des trajectoires $a_t,b_t$ et une trajectoire brownienne $W_t$.  On écrit une "équation différentielle stochastique" :
+$$
+ dX_t = a_t \, dt + b_t dW_t 
+ $$
+Elle s'interprète ainsi :  
+$$
+X_{t+ \ep } -X_t = a_t \ep + b_t (W_{t+\ep}-W_t) 
+$$
+Donc : les accroissements infinitésimaux de $X_t$ dépendent des accroissements infinitésimaux du Brownien. On dit que $X_t$ subit une excitation brownienne.  L'équation différentielle stochastique se résout grâce au schéma d'Euler :
+$$
+X_{t_{i+1}} =  \tromm{X_{t_i} +    a_{t_i} (t_{i+1} -t_i)   + b_{t_i} (W_{t_{i+1}}- W_{t_i}) }
+$$
+Nous  programmerons ce schéma en TP. 
+
+
+ 
+\section{Chain-rule}
+
+En français, la "chain-rule" est la "règle de dérivation composée".
+
+\subsection{La chain-rule pour les trajectoires régulières}
+
+Considérons maintenant une fonction $f(x)$ de  $\co R$ dans $\co R$.  Notons $f'$ et $f''$ ses dérivées premières et secondes.
+Quand $X_t$ est une trajectoire régulière nous avons : 
+$$
+\frac {d f(X_t)}{dt} = f'(X_t)    \tromm{   \frac{dX_t}{dt} }
+$$
+qui s'écrit plus joliment :  
+$$
+d f(X_t) =\tromm{ f'(X_t) \, dX_t }
+$$
+Cette formule est {\bf fausse} quand $X_t$ est une trajectoire excitée.
+
+
+\subsection{Le crochet stochastique}
+
+Le crochet stochastique est un produit scalaire sur les accroissements différentiels (on verra plus loin une définition). Listez ses propriétés
+
+\begin{grostro}
+Il est donc symétrique :
+$$
+\cc dX_t , dZ_t\bb=\cc  dZ_t, dX_t\bb
+$$
+Linéaire :
+$$
+\cc dX_t + dY_t, dZ_t\bb  = \cc dX_t , dZ_t\bb+\cc dY_t, dZ_t\bb
+$$
+Les éléments non différentiel sortent comme des constantes
+$$
+ \cc a_t\, dX_t , dZ_t\bb  =    a_t\,  \cc  dX_t , dZ_t\bb
+$$
+Dès qu'un des éléments est réduit à $dt$, le crochet s'annule
+$$
+\cc dX_t, dt\bb =0 
+$$
+Si les deux éléments sont des Browniens indépendants alors le crochet s'annule
+$$
+\cc dW_t, d\tilde W_t  \bb =0 
+$$
+mais s'il y a le même brownien des deux côtés alors :
+$$
+\cc dW_t, d W_t  \bb = dt
+$$
+\end{grostro}
+
+
+Exemples quand $dX_t = a_t dt +  b_t  dW_t + c_t d\tilde W_t$ et $d Y_t = i_t dt + j_t dW_t + k_t d\tilde W_t$ alors
+\begin{alignat*}{1}
+\cc dX_t, d \tilde Y_t   \bb = b_t j_t \, dt + c_tk_t \, dt
+\end{alignat*}
+
+
+\subsection{Chain rule pour les trajectoires excitées}
+
+
+\begin{theoreme}[Formule d'Ito] Considérons $X_t$ une trajectoire excitée. Considérons $f$ une fonction deux fois dérivables, on a 
+$$
+df(X_t) =  \tromm{ f'(X_t) dX_t   +   \frac 1 2 f''(X_t) \, \cc dX_t,dX_t\bb}
+$$
+\end{theoreme}
+En particulier si $dX_t =a_t dt + b_t dW_t$ : 
+$$
+df(X_t) =\tromm{ f'(X_t) dX_t   +   \frac 1 2 f''(X_t)  b_t^2 \, dt}
+$$
+Retenez bien ce terme supplémentaire dans la chain-rule.  
+Remarquez que lorsque $X_t$ est une trajectoire régulière, le crochet différentiel s'annule et on retombe sur la chain-rule-régulière. 
+
+
+\subsection{Exemples}
+
+ Montrez que  $X_t = e^{W_t - \frac 1 2 t}$  satisfait $dX_t = X_t dW_t$. 
+ \begin{grostro}
+ 
+ \vspace{3cm}
+ 
+ \end{grostro}
+
+
+
+\section{Intégrales d'Ito}
+
+
+
+\subsection{L'intégrale d'Ito}
+
+Une trajectoire excitée est définie par une équation différentielle stochastique et un point de départ :
+$$
+\begin{cases}
+dX_t =  a_t \, dt + b_t \, dW_t \\
+X_0=x_0
+\end{cases}
+ $$
+On aimerait aussi pouvoir la définir comme ceci :
+$$
+X_t = X_0 + \int_0^t a_s ds  + \int_0^t b_s dW_s 
+$$
+Il faut donc donner un sens à la seconde intégrale :  On  utilise pour cela la formule des rectangles-évalués-à-gauche :  on se donne des temps $(0=s_0^n, s_1^n,s_2^n,...)$ qui se rapprochent quand $n\to \infty$. On définit l'intégrale d'Ito par : 
+$$ 
+it \!\!\oint_0^t b_s dW_s  : =  \lim_n    \tromm{ \sum_{i}   b_{s^n_{i}} ( W_{s^n_{i+1}} - W_{s^n_i} )    1_{s^n_i<t} }
+\eqno{(ITO)}
+$$
+
+FAITES UN DESSIN
+
+\vspace{3cm}
+
+
+\section{Multi-dimension}
+
+\subsection{Formule d'Ito multi-dimensionnelle}
+
+On considère  maintenant plusieurs browniens indépendants $W^k_t$ et on définit   plusieurs trajectoires excitées $X^i_t$ par : 
+$$
+dX^i_t = a^{ik}_t   dt + b_t^{ik} dW_t^k 
+$$
+
+
+\begin{theorem}[Formule d'Ito multi-dimensionnelles] Considérons  des trajectoires excitées $(X^1_t,...,X^n_t)$. Considérons $f : \co R^n \to \co R$ une fonction 2 fois dérivable. On a :
+$$
+d f  (X^1_t,...,X^n_t)  = \tromm{ \sum_i   \frac {\partial f}{\partial  X_t^i}   \,  dX^i_t    + \frac 1 2  \sum_{ij}    \frac {\partial^2 f}{\partial  X_t^i\partial X_t^j}  \,    \cc dX^i_t, dX^j_t \bb}
+$$
+\end{theorem}
+
+
+
+
+\subsection{Dérivation d'un produit}
+
+
+\begin{exemple}[Dérivation d'un produit] Considérons 2 trajectoires excitées : 
+\begin{alignat}{1}
+X_t & = a_t dt +b_t dW_t \\
+Y_t &  = c_tdt  + e_t d\tilde W_t 
+\end{alignat}
+L'opération produit est une fonction : $x\times y = f(x,y)$ que l'on sait bien dériver. Ainsi 
+$$
+d(X_tY_t) =  \tromm{  X_tdY_t + Y_tdX_t +  \cc dX_t , dY_t \bb   }
+$$
+Ainsi si $W_t=\tilde W_t$ on trouve 
+$$
+d(X_tY_t) =\tromm{ X_tdY_t + Y_tdX_t + b_te_t dt   }
+$$
+Mais si $W$ et $\tilde W$ sont indépendants on retombe sur la formule bien connue  
+$$
+d(X_tY_t) = \tromm{X_tdY_t + Y_tdX_t}
+$$  
+\end{exemple}
+
+
+\begin{exo}[Pont brownien]\label{aze} Dans cet exo $t$ appartient à $[0,1[$. Montrez que :
+$$
+X_t= (1-t)  \int_0^t \frac 1 {1-s}  dW_s \eqno{(SOLpont)}
+$$
+est solution de 
+$$
+dX_t= \frac {-X_t}{1-t} + dW_s  \eqno{(EDSpont)}
+$$
+Aide : vous dériverez un produit composé d'un trajectoire régulière : $(1-t)$ et d'une trajectoire excitée $\int_0^t \frac 1 {1-s}  dW_s$. Bien entendu toutes les intégrales avec des $dW_s$ sont des intégrales d'ito, et  on a $d \big(\int_0^t a_sdW_s\big) = a_t dW_t$  (l'intégrale d'Ito a été construite pour cela). 
+\end{exo}
+
+
+Résolvez l'exo 
+
+\begin{grostro}
+
+\vspace{5cm}
+
+\end{grostro}
+
+
+
+
+
+\section{Processus de Markov et Martingales}
+
+\subsection{Markov = Diffusions}
+
+Une trajectoire $X_t$ est processus de Markov dans la filtration $F_t$ quand
+\begin{itemize}
+\item $\fo t,s$,   $X_{t+s}-X_t$ est  \tro{ indépendant de $F_t$ conditionnellement à $X_t$. }
+\end{itemize}
+Interprétation : <<à chaque instant $t$, l'évolution futur   $X_{t+s}-X_t$  ne dépend que du présent $X_t$ et d'un hasard indépendant du  passé $F_t$. >>
+
+
+En particulier, un brownien est un processus Markov.  
+
+
+\begin{definition} Soient $a$ et $b$ sont deux fonctions de $\co R$ dans $\co R$. La trajectoire excitée  
+$$
+dX_t= a(X_t) dt + b(X_t) dW_t
+$$
+est  appelée une diffusion.
+\end {definition}
+
+ Les diffusions sont des processus de Markov : En effet à chaque instant $t$, l'évolution futur d'une diffusion (ici $ dX_t$) ne dépend que de sa position présente ($X_t$) et d'un hasard indépendant du passé ($dW_t$).
+
+
+\begin{exo}  Considérons $W_t$ un mouvement brownien. Quelle équation différentielle vérifie $W^2_t$.  Expliquez pourquoi $W^2_t$ n'est pas une diffusion. 
+\end{exo}
+
+
+
+
+\begin{grostro}
+
+\vspace{5cm}
+
+\end{grostro}
+
+
+\subsection{Martingale = trajectoire purement excitée}
+
+Une trajectoire $X_t$ est une martingale la filtration $F_t$ quand
+$$
+\fo t,s \qq \Es[ X_{t+s}-X_t   /  F_t  ] = \trom{ 0   \ \  \ \ \  \ \ \    \ \  \ \ \  \ \ \    \ \  \ \ \  \ \ \    \ \  \ \ \  \ \ \   }
+$$
+
+
+Ex: une trajectoire brownienne est une martingale.   
+
+
+Les trajectoires 'purement' excitées 
+$$
+dX_t = b_t  dW_t
+$$
+sont justement des martingales\footnote{En fait, pour que ce soit vraiment vrai, il faut que $b_t$ ne soit pas trop grand. Par ex : $\fo T:\Es[\int_0^T b^2_t dt ]<\infty$}.  Explication :
+$$
+\Es[ X_{t+\ep}-X_t / F_t] = \Es[ b_t (W_{t+\ep}-W_t)) / F_t] = b_t \Es[ (W_{t+\ep}-W_t)) / F_t]  = 0 
+$$
+
+
+%En fait  Si $b_t$ n'est pas trop grand  ()   alors la trajectoire purement excitée est une martingale.  
+
+%Réciproque : Quand $F_t$ est la filtration d'un seul brownien $W_t$, toutes les martingales vérifient $dX_t = b_t  dW_t$.
+
+
+
+
+
+\subsection{Fonction d'une martingale et  modélisation de prix}
+
+Considérons 
+$$
+dX_t=  b_t dW_t
+$$
+%On suppose $b_t$ pas trop grand pour que ce soit une martingale. 
+D'après la formule d'Ito : 
+$$
+d\, f(X_t) =  f'(X_t) b_t dW_t + \frac 12 b_t^2 f''(X_t)dt 
+$$
+Dès que $f''\neq0$,  $f(X_t)$ n'est plus une martingale :  le second terme (appelé "dérive" ou "drift") décrit comment $f(X_t)$  s'éloigne d'une martingale.  En particulier quand $f$ est convexe/concave, $f(X_t)$ dérive vers le haut/bas\footnote{on partle de sous/sur martingale (terminologie anti-intuitive)}. 
+
+
+Rappelons l'exponentielle stochastique : $X_t = e^{W_t-\frac 12 t }$. Rappelons qu'elle est aussi définie par :
+$$
+X_0=1 \ \ ; \ \ dX_t = X_t dW_t       
+$$
+Ainsi c'est une martingale, et de plus elle est positive. Ce qui est très intéressant pour modéliser des sommes d'argent $X_t$ qui "en moyenne n'évolue pas" (ex : les gains lors d'un jeu équilibré).  Un non-mathématicien dira alors :  puisqu'en moyenne le prix n'évolue pas, autant le modéliser par un processus constant ($\fo t : X_t=X_0$).  
+
+Et bien non, ce n'est pas la même chose : car dès qu'on va faire quelque chose avec l'argent, c'est à dire, dès qu'on va considérer des sommes $f(X_t)$  le hasard prendra son importance. L'erreur du non-mathématicien c'est de croire que $\Es[f(X_t)] = f (\Es[X_t])$.
+
+\begin{exo} Considérons  une martingale positive $X_t$ avec $X_0=1$, qui représente le prix d'une action.  Votre banquier vous propose de placer votre argent sur cette action. Il vous propose de gagner  $f_1(X_t)$ ou  $f_2(X_t)$ ou  $f_3(X_t)$ ou $f_4(X_t)$. Quelle fonction choisiriez-vous ?
+\begin{fenetre}{troisFonctions}{0.7}
+\end{fenetre}
+\end{exo}
+
+
+Classez les fonctions. Mettez une phrase d'explication. 
+
+\begin{grostro}
+
+\vspace{3cm}
+
+
+\end{grostro}
+
+
+
+
+
+
+
+\section{Lotka-Volterra}
+
+
+\subsection{Deux espèces en concurrences}
+
+\begin{exemple}[Lotka-Voltera] Considérons 
+\begin{alignat*}{1}
+dX_t &= X_t dt  - X_t Y_tdt  + \ep X_t dW_t\\
+dY_t &= -Y_t dt  + X_t Y_tdt  + \ep Y_t d\tilde W_t
+\end{alignat*}
+Quand $\ep=0$ on trouve le système différentiel de Lotka-Voltera classique :  $X$ est la population de proies et $Y$ est la population de prédateurs.
+\end{exemple}
+
+Expliquez schématiquement pourquoi cette équation a des solutions périodiques
+
+\begin{grostro}
+
+\vspace{3cm}
+
+\end{grostro}
+
+
+
+
+\begin{exo}  Considérons le processus $(X_t,Y_t)$ défini précédemment. Notons 
+$$
+Z_t= X_t+Y_t - \ln(X_t) - \ln(Y_t)
+$$
+Calculez $dZ$. soignez la présentation des calculs (utilisez un brouillon). Interprétez. 
+\end{exo}
+
+Ce dernier exercice est plus long que les autres. Il rapporte plus de points. 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+\end{document}
+
