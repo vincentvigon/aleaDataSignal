@@ -1,0 +1,1448 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{D\_12\_GLM}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{moduxe8le-linuxe9aire-guxe9nuxe9ralisuxe9-generalize-linear-model}{%
+\section{Modèle linéaire généralisé (Generalize Linear
+Model)}\label{moduxe8le-linuxe9aire-guxe9nuxe9ralisuxe9-generalize-linear-model}}
+
+\textbf{\emph{Introduction:}} Nous nous intéressons à la modélisation
+probabiste de données: Elles sont constituées d'input \(x_i\) et d'ouput
+\(y_i\).
+
+\begin{itemize}
+\tightlist
+\item
+  exemple 1: \(y_i\) est le prix du \(i\)-ième appartement et
+  \(x_i\)=(surface, ensoleillement, quatier)
+\item
+  exemple 2: \(y_i\) est le nombre d'accident du \(i\)-ième client d'une
+  assurance, et \(x_i\) c'est toutes ses données personnelles.
+\end{itemize}
+
+On va chercher une loi de probabilité qui décrive au mieux la
+distribution (=la loi) d'un output lorsqu'on observe un input donné.
+Cette loi pourra dépendre d'un certain paramètre \(w\) qu'il faudra
+ensuite ajuster au mieux.
+
+\textbf{\emph{Vocabulaire:}} * input = variable explicative =
+descripteur = variable exogène * output = variable réponse = variable
+cible = variable endogène
+
+\textbf{\emph{Mathématiquement 1:}} On imagine une fonction \(L(x,y,w)\)
+et l'on décrète que la proba d'observer \(y_i\) en présence de \(x_i\)
+est:
+
+\[
+        L( x_i , y_i , w )     \qquad   \qquad  \hbox{ pour un certain } w
+\]
+
+En supposant les observations indépendantes, la proba d'observer
+simultanément \(y[0],y[1],y[2]...\) est donc de
+
+\[
+      L(x[0],y[0],w) * L(x[1],y[1],w) * L(x[2],y[2],w) * ... = \prod_i  L( x_i , y_i , w ) 
+\]
+
+Le meilleur \(w\) possible, est naturellement celui qui rend le plus
+probable (=vraissemblable) nos données, à savoir:
+
+\[
+        \hat w = \hbox{argmax}_w \prod_i  L( x_i , y_i , w ) 
+\] ce qu'on reformule souvent comme ceci: \[
+        \hat w = \hbox{argmin}_w - \sum_i  \log L( x_i , y_i , w ) 
+\]
+
+Cette manière de choisir \(w\) s'appelle: ``la technique du maximum de
+vraissemblance''.
+
+\textbf{\emph{Mathématiquement 2:}} L'explication précédente est simple,
+mais elle n'est rigoureuse que lorsque les données sont ``discrètes''
+{[}ex: \(y_i\) est un nombre d'accident{]}. Pour des variables continues
+{[}ex: \(y_i\) est le prix d'un appartement{]}, la probabilité
+d'observer exactement une donnée en particulier est nulle (en théorie).
+
+Reformulons notre méthodologie pour la rendre rigoureuse dans tous les
+cas: On imagine une fonction \(L(x,y,w)\), et l'on décrète que les
+\(y_i\) (petit y) sont des observations de v.a \(Y_i\) (grand Y) dont la
+densité est:
+
+\[
+         y \to  L(x_i,y,w)
+\] Ainsi la densité jointe de \(Y_0,Y_1,Y_2...\) c'est \[
+\prod_i  L( x_i , y_i , w ) 
+\] et le paramètre qui rend le plus vraissemblable l'ensemble de nos
+données est toujours: \[
+        \hat w =\hbox{argmax}_w \prod_i  L( x_i , y_i , w ) 
+\] La seule différence c'est que la fonction \(L\) peut dépasser 1.
+
+\textbf{\emph{A quoi ça sert?}} A deux choses:
+
+1/ À comprendre l'influence de l'input \(x\) sur l'output \(y\). Ex: on
+pourra en déduire que le prix d'un appartement est une fonction affine
+de la surface, qu'il dépend exponentiellement de la `chicosité' du
+quartier, mais aussi que, plus le quartier est chic, et plus la variance
+des prix augmente, etc.
+
+2/ À prédire: supposons que l'on dispose d'un input \(x'\) qui n'est pas
+dans nos données initiales; quel est l'output \(y'\) qui lui
+correspondrait le mieux? ex: considérons un appartement \(x'\)=(surface:
+33\(m^2\), ensoleillement: sombre, quartier: très chic). Quelle est
+l'estimation de son prix?. Pour cela on peut prendre:
+
+\begin{itemize}
+\tightlist
+\item
+  le \(y'\) qui maximise la vraissemblance \(y\to L(x',y,\hat w)\)\\
+\item
+  l'espérance de la v.a \(Y\) dont la densité est
+  \(y\to L(x',y,\hat w)\)
+\end{itemize}
+
+On choisi en général la seconde estimation (qui coincide parfois avec la
+première).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} maintenant on va coder. On importe les libraires utiles.\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{api} \PY{k}{as} \PY{n+nn}{sm}
+        \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{stats}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k}{import} \PY{n}{pyplot} \PY{k}{as} \PY{n}{plt}
+        \PY{n}{np}\PY{o}{.}\PY{n}{set\PYZus{}printoptions}\PY{p}{(}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{50000}\PY{p}{,}\PY{n}{suppress}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,}\PY{n}{precision}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{o}{\PYZpc{}} \PY{n}{matplotlib} \PY{n}{inline}
+\end{Verbatim}
+
+
+    \hypertarget{comparaison-de-deux-jeux-de-donnuxe9es}{%
+\section{Comparaison de deux jeux de
+données}\label{comparaison-de-deux-jeux-de-donnuxe9es}}
+
+Observez les points ci-dessous.
+
+\begin{itemize}
+\item
+  ressemblance: ils ont la même tendance : plus \texttt{x{[}i{]}} est
+  grand, et plus \texttt{y{[}i{]}} est grand, et cette dépendance semble
+  être linéaire.
+\item
+  dissemblance: sur le second, plus \texttt{x{[}i{]}} est grand, le plus
+  la variabilité des \texttt{x{[}i{]}} est grande. De plus les
+  \texttt{y{[}i{]}} sont tous positifs.
+\end{itemize}
+
+On imagine bien qu'il ne faudra pas modéliser ces deux jeux de la même
+manière.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{x0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data0\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{y0}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data0\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
+        \PY{n}{x1}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data1\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{y1}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data1\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x0}\PY{p}{,}\PY{n}{y0}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{]}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x1}\PY{p}{,}\PY{n}{y1}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{]}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_3_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \textbf{\emph{Exo:}} En utilisant la technique des moindres carrés,
+calculer avec python la meilleur droite de régression pour ces deux jeux
+de données. Superposer cette droite avec les données.
+
+    \hypertarget{le-moduxe8le-linuxe9aire-gaussien}{%
+\section{Le modèle linéaire
+Gaussien}\label{le-moduxe8le-linuxe9aire-gaussien}}
+
+    Considérons le premier jeu de données. Il est bien modélisé par une
+formule du type
+
+\begin{verbatim}
+    y[i] = w0 + w1  x[i] + Bruit[i]
+\end{verbatim}
+
+Si on suppose en plus que \texttt{Bruit{[}i{]}} c'est des v.a
+gaussiennes centrées de variance σ² (qui ne dépend pas de \texttt{i}),
+alors notre modèle est :
+
+\begin{verbatim}
+     y[i] ~ Normale (esp = μ[i] , var = σ² ),   μ[i] = w0 + w1 x[i]
+\end{verbatim}
+
+Remarque: Le second jeu de données serait mieux modélisé par des v.a de
+loi Gamma : elles sont positives, et leur variance augmente quand
+l'espérance augmente (quant le paramètre de forme est fixé). On verra
+cela plus tard.
+
+Maintenant estimons les paramètres \texttt{w0} (=le biais) et
+\texttt{w1} (=la pente de la tendance) en utilisant la librairie
+\texttt{statsmodel} qui utilise la technique du maximum de
+vraissemblance.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,}\PY{n}{verbose}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on étend les descripteurs `x` en ajoutant une colonne de \PYZsq{}1\PYZsq{} . Car dans le modèle }
+        \PY{l+s+sd}{             mu[i]= w0*\PYZsq{}1\PYZsq{} + w1*x[i] \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{x\PYZus{}ext}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{stack}\PY{p}{(}\PY{p}{[} \PY{n}{np}\PY{o}{.}\PY{n}{ones}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{p}{,} \PY{n}{x}\PY{p}{]}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+            
+            \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x\PYZus{}ext}\PY{p}{,} \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Gaussian}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{n}{model\PYZus{}results} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+            \PY{n}{w}\PY{o}{=}\PY{n}{model\PYZus{}results}\PY{o}{.}\PY{n}{params}
+            
+            \PY{k}{if} \PY{n}{verbose}\PY{p}{:} \PY{n+nb}{print}\PY{p}{(}\PY{n}{model\PYZus{}results}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n}{w}
+        
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{estimation de w0 w1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x0}\PY{p}{,} \PY{n}{y0}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+estimation de w0 w1: [ 4.63  9.75]
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} traçons cette tendance \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n}{w}\PY{o}{=}\PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x0}\PY{p}{,} \PY{n}{y0}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x0}\PY{p}{,}\PY{n}{y0}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{xx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{x0}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{x0}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{xx}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \textbf{\emph{Exo:}} Calculez la vraissemblance \(\prod_i L(x_i,y_i,w)\)
+dans le modèle gaussien. Ecrivez et simplifiez le problème de
+maximisation qui permet d'obtenir \(\hat w\). Montrez qu'on retrouve la
+formule des moindres carrés.
+
+    Mais le fait d'avoir ajusté un modèle probabiliste sur les données nous
+permet de juger de la qualité de nos estiamtions. Observons le
+``summary'' fourni par \texttt{statsmodel}:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x0}\PY{p}{,} \PY{n}{y0}\PY{p}{,}\PY{n}{verbose}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 1000
+Model:                            GLM   Df Residuals:                      998
+Model Family:                Gaussian   Df Model:                            1
+Link Function:               identity   Scale:                   90.9263687696
+Method:                          IRLS   Log-Likelihood:                -3673.0
+Date:                Wed, 06 Jun 2018   Deviance:                       90745.
+Time:                        09:34:04   Pearson chi2:                 9.07e+04
+No. Iterations:                     2                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          4.6305      0.613      7.557      0.000       3.430       5.832
+x1             9.7461      0.519     18.770      0.000       8.728      10.764
+==============================================================================
+
+    \end{Verbatim}
+
+    Observons la ligne ``const'' ci dessus:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{coef} c'est \(\hat w_0\): le terme constant de notre droite de
+  regression, qui approxime le ``vrai'' \(w_0\). On l'appel aussi
+  ``biais'' ou ``intercept''.
+\item
+  \texttt{std\ err} c'est l'écartype estimé de l'estimateur
+  \(\hat w_0\).
+\item
+  \texttt{\textbackslash{}{[}0.025\ \ 0.975\textbackslash{}{]}} c'est
+  l'intervalle de confiance à 95\%. Le vrai paramètre \(w_0\) appartient
+  à cet intervalle avec une probabilité de 95\%.
+\item
+  \texttt{P\textgreater{}\textbar{}z\textbar{}} c'est la p-value associé
+  au test de nullité de \(w_0\). Rappelons simplement la recette: 1/ On
+  choisit un niveau de test, disons \(\alpha=5\%\). 2/ Quand
+  \texttt{p-value{[}j{]}}\(<\alpha\), on choisi l'hypothèse H1 c.à.d
+  qu'on décrète que \texttt{w{[}j{]}} est non-nul. 3/ Quand
+  \texttt{p-value{[}j{]}}\(>\alpha\), on choisi l'hypothèse H0 c.à.d
+  qu'on décrète que \texttt{w{[}j{]}} est nul, donc les input
+  \texttt{x{[}:,j{]}} n'ont pas d'influence sur l'output. On a toujours
+  intérêt à enlever des inputs inutiles car ils parasitent
+  l'interprétation des résultats.
+\end{itemize}
+
+    \hypertarget{ruxe9sidus}{%
+\subsubsection{Résidus}\label{ruxe9sidus}}
+
+Reprenons nos deux jeux de données.
+
+Les résidus ce sont les données \texttt{y{[}i{]}} moins l'estimation
+\texttt{mu{[}i{]}=b+w\ X{[}i{]}} (graphiquement :on soustrait aux points
+la droite de tendance). Quand le modèle linéaire gaussien est
+(approximativement) le bon, les résidus ont (approximativement) une
+distribution gaussienne.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{w0}\PY{o}{=}\PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x0}\PY{p}{,} \PY{n}{y0}\PY{p}{)}
+        \PY{n}{w1}\PY{o}{=}\PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x1}\PY{p}{,} \PY{n}{y1}\PY{p}{)}
+        
+        \PY{n}{xx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{x0}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{x0}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x0}\PY{p}{,}\PY{n}{y0}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{w0}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{w0}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{xx}\PY{p}{)}\PY{p}{;}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{]}\PY{p}{)}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x1}\PY{p}{,}\PY{n}{y1}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{w1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{xx}\PY{p}{)}\PY{p}{;}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{]}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{def} \PY{n+nf}{plot\PYZus{}residus}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{)}\PY{p}{:}
+            \PY{n}{b}\PY{p}{,}\PY{n}{w}\PY{o}{=}\PY{n}{estimate\PYZus{}linear\PYZus{}drift}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
+            \PY{n}{residus}\PY{o}{=}  \PY{p}{(}\PY{n}{y}   \PY{o}{\PYZhy{}}  \PY{n}{b} \PY{o}{\PYZhy{}} \PY{n}{w}\PY{o}{*} \PY{n}{x}\PY{p}{)}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} histogramme des résidus \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{residus}\PY{p}{,}\PY{n}{bins}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{,}\PY{n}{edgecolor}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{k}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{normed}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on ajuste par dessus une courbe gaussienne. \PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{n}{xx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{residus}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{residus}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+            \PY{n}{yy}\PY{o}{=}\PY{n}{stats}\PY{o}{.}\PY{n}{norm}\PY{o}{.}\PY{n}{pdf}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{scale}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{residus}\PY{p}{)}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{yy}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{50}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{0.1}\PY{p}{)}
+            
+            
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{plot\PYZus{}residus}\PY{p}{(}\PY{n}{x0}\PY{p}{,}\PY{n}{y0}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{plot\PYZus{}residus}\PY{p}{(}\PY{n}{x1}\PY{p}{,}\PY{n}{y1}\PY{p}{)}    
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Pour le second jeu de donnée, l'hypothèse de résidu gaussien semble
+fausse. Pour aller au delà d'un test visuel, il existe des tests de
+gaussianité.
+
+    \hypertarget{moduxe8le-log-gamma}{%
+\section{Modèle log-Gamma}\label{moduxe8le-log-gamma}}
+
+Observons un nouveau jeu de données :
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{x2}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data2\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{y2}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/data2\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x2}\PY{p}{,}\PY{n}{y2}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Il semble que les input \texttt{x{[}i{]}} ont un effet sur-linéaire sur
+les output \texttt{y{[}i{]}}. On pourrait alors imaginer que
+
+\begin{verbatim}
+Y[i] ~ Normale (esp = μ[i] , var = σ² )  avec   μ[i]= exp(w0+ w1*X[i])
+\end{verbatim}
+
+Mais ce n'est encore une bonne modélisation: car sur les observations,
+plus \texttt{x{[}i{]}} est grand et plus la variance de
+\texttt{y{[}i{]}} est grande. De plus les données sont positives. Le
+choix naturel est alors:
+
+\begin{verbatim}
+Y[i] ~ Gamma(shape = α,  scale = μ[i]/ α)    avec  μ[i] = exp(w0+ w1*x[i] )
+\end{verbatim}
+
+En effet, la loi gamma a deux paramètres \texttt{shape} et
+\texttt{scale}, et son espérance c'est le produit de ces deux
+paramètres.
+
+\textbf{\emph{Vocabulaire et remarques:}} la fonction `lien' est
+l'inverse de la fonction qui relie l'input à l'espérance des données
+modélisées. Donc ici la fonction `lien' est le log.
+
+Cherchez dans le code ci-dessous l'endroit où l'on précise cette
+fonction `lien'. Remarquez aussi que l'on ne précise pas le paramètre de
+forme \texttt{α}: car il n'intervient pas dans la maximisation (tout
+comme la variance σ² dans le modèle linéaire).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k}{def} \PY{n+nf}{estimate\PYZus{}exponential\PYZus{}drift}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
+            \PY{n}{x\PYZus{}ext}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{stack}\PY{p}{(}\PY{p}{[} \PY{n}{np}\PY{o}{.}\PY{n}{ones}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{p}{,} \PY{n}{x}\PY{p}{]}\PY{p}{,}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x\PYZus{}ext}\PY{p}{,} \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Gamma}\PY{p}{(}\PY{n}{link}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{links}\PY{o}{.}\PY{n}{log}\PY{p}{)}\PY{p}{)}
+            \PY{n}{model\PYZus{}results} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+            \PY{n}{w}\PY{o}{=}\PY{n}{model\PYZus{}results}\PY{o}{.}\PY{n}{params}
+            \PY{k}{return} \PY{n}{w}
+        
+        \PY{n}{w}\PY{o}{=}\PY{n}{estimate\PYZus{}exponential\PYZus{}drift}\PY{p}{(}\PY{n}{x2}\PY{p}{,}\PY{n}{y2}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x2}\PY{p}{,}\PY{n}{y2}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{xx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{xx}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \textbf{\emph{Exo:}} La bibliothèque statsmodel a encore une fois
+utilisé la technique du maximum de vraissemblance. Ecrivez la
+vraissemblance \(\prod_i L(x_i,y_i,w)\) en utilisant le fait que la
+densité de Gamma(shape = α, scale = 1) est : \[
+ y \to     \frac 1 {\Gamma(\alpha)}     y ^{\alpha-1} e^{- y} 
+\] (comme d'habitude, pour passer de scale = 1 à scale = θ on change y
+en y/θ et l'on multiplie la densité par 1/θ pour que l'intégrale reste
+égale à 1)
+
+Ecrivez le problème de maximisation, simplifiez-le, vérifier que le
+paramètre de forme \(\alpha\) n'intervient pas dans l'expression de
+\(\hat w\).
+
+    \hypertarget{moduxe8le-log-poisson}{%
+\section{Modèle log-Poisson}\label{moduxe8le-log-poisson}}
+
+Observons de nouvelles données. L'output \texttt{y{[}i{]}} sont le
+nombre d'accident de l'individu \texttt{i}, l'input est
+\texttt{x{[}i{]}} est ``l'indice fangio'' de ce même individu.
+
+Remarque: l'output est maintenant à valeur entière, mais cela reste une
+donnée quantitative.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{x}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/accident\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{y}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/accident\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Les \texttt{y{[}i{]}} sont discrets. La majorité des individus ont 0
+accident, mais ceux avec un grand indice fangio peuvent avoir de
+nombreux accidents, le reccord étant 7! On suppute que l'``indice
+fangio'' a un effet multiplicatif sur la fréquence des accidents. Le
+modèle naturel est :
+
+\begin{verbatim}
+    Y[i] ~ Poisson (λ = μ[i]),  avec   μ[i]= exp(w0+ w1*X[i])
+\end{verbatim}
+
+On rappelle que l'espérance de la loi de Poisson, c'est son paramètre λ.
+
+Nous utilisons \texttt{statsmodel} pour estimer les paramètres
+\texttt{w0} et \texttt{w1}. Pour le modèle Poissonien, la fonction de
+lien ``par défaut'' est la fonction log, donc nous n'avons pas besoin de
+la préciser dans le code ci-dessous.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{x\PYZus{}ext}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x\PYZus{}ext}\PY{p}{,}  \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Poisson}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{w}\PY{o}{=}\PY{n}{res}\PY{o}{.}\PY{n}{params}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{estimation de w0 et w1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{w}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+estimation de w0 et w1: [-4.02  5.03]
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{xx}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{w}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{w}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{n}{xx} \PY{p}{)} \PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{moduxe8le-avec-exposition}{%
+\subsubsection{Modèle avec exposition}\label{moduxe8le-avec-exposition}}
+
+Dans les données précédentes, le nombre d'accident était observer sur
+une période donnée commune à tous les clients (1 an).
+
+Dans les données suivantes, on observe les clients sur des durées
+variables. On a donc deux inputs:
+
+1/ l'indice fangio 2/ l'exposition (=la durée d'observation) qui est
+donnée en nombre de jour
+
+On voit naturellement que plus la durée d'observation est longue, et
+plus le nombre d'accident est important.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{xt}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/accident\PYZus{}exposure\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{x}\PY{o}{=}\PY{n}{xt}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]} \PY{c+c1}{\PYZsh{}indice fangio}
+         \PY{n}{t}\PY{o}{=}\PY{n}{xt}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]} \PY{c+c1}{\PYZsh{}exposition}
+         \PY{n}{y}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/accident\PYZus{}exposure\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Il est donc naturelle de diviser le nombre d'accident par l'exposition.
+On obtient ainsi un nouvel output \texttt{y/t} que l'on peut essayer
+d'observer en fonction de l'indice fangio. On retombe alors sur un
+graphique similaire à celui du premier jeu de donnée d'accident.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{o}{/}\PY{n}{t}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_30_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    On pourrait alors imaginer comme modèle:
+
+\begin{verbatim}
+    Y[i]/t[i] ~ Poisson (λ = μ[i]),  avec   μ[i]= exp(w0+ w1*X[i])
+\end{verbatim}
+
+Mais ce n'est pas terrible (notamment car \texttt{Y/t} n'est pas un
+entier). Le bon modèle dans ce cas est:
+
+\begin{verbatim}
+     Y[i] ~ Poisson (λ =  μ[i]),  avec   μ[i]= t[i] exp(w0+ w1*X[i]) = exp(w0+ w1*X[i]+ log(t[i]) )
+\end{verbatim}
+
+On voit apparaire l'input \texttt{log(t{[}i{]})} dans l'exponentielle.
+C'est une variable dite ``offset'' car on ne cherche pas à lui associé
+un coefficient \texttt{w}. Observez comment on rajoute une variable
+offset dans \texttt{statsmodel}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{x\PYZus{}ext}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x\PYZus{}ext}\PY{p}{,}  \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Poisson}\PY{p}{(}\PY{p}{)}\PY{p}{,}\PY{n}{offset}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{log}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{w}\PY{o}{=}\PY{n}{res}\PY{o}{.}\PY{n}{params}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{estimation de w0 et w1:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{w}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+estimation de w0 et w1: [-10.04   5.17]
+
+    \end{Verbatim}
+
+    \textbf{\emph{Exo:}} Les clients entre les deux jeux de données sont les
+mêmes. Dans le premier jeu, on avait simplement considéré des clients
+sur une période de 1 an.
+
+Par un petit calcul, justifiez que l'intercep \texttt{w0} soit environ
+-4 dans le premier jeu et -10 dans le second jeu.
+
+    \hypertarget{moduxe8le-logistique-pour-la-classification-binaire}{%
+\section{Modèle logistique pour la classification
+binaire}\label{moduxe8le-logistique-pour-la-classification-binaire}}
+
+Les jeux de données vont maintenant changer de nature: la variable
+output sera une variable qualitative et non plus quantitative. On aura
+donc affaire à des problèmes de classification et non plus de
+régression.
+
+Comme auparavant, on va essayer de trouver une bonne loi pour nos
+observations.
+
+    \hypertarget{donnuxe9es-individuelles}{%
+\subsubsection{données individuelles}\label{donnuxe9es-individuelles}}
+
+    Dans le jeu de données suivant, chaque ligne représente une bactérie. Il
+y a 2 input (car \texttt{x} a 2 colonnes). Leur signification est:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x1{[}i{]}} : quantité de nouriture donnée à la bactérie
+  \texttt{i} (en calories)
+\item
+  \texttt{x2{[}i{]}} : quantité de d'oxigène donnée à la bactérie
+  \texttt{i} (en litres)
+\end{itemize}
+
+L'output est binaire:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{y{[}i{]}=0} : la bactérie \texttt{i} est morte
+\item
+  \texttt{y{[}i{]}=1} : la bactérie \texttt{i} est vivante
+\end{itemize}
+
+Observons les données:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{x}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/bacteria\PYZus{}alone\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{y}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/bacteria\PYZus{}alone\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{matrice des inputs (transposée)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{.}\PY{n}{T}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{vecteur des outputs}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{x\PYZus{}dead}\PY{o}{=}\PY{n}{x}\PY{p}{[}\PY{n}{y}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{]}
+         \PY{n}{x\PYZus{}alife}\PY{o}{=}\PY{n}{x}\PY{p}{[}\PY{n}{y}\PY{o}{==}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x\PYZus{}dead}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{x\PYZus{}dead}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dead}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x\PYZus{}alife}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{x\PYZus{}alife}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{alife}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+matrice des inputs (transposée)
+[[ 2.7   0.69  2.09  2.03  0.67  3.74  2.61  4.08  2.85  3.18]
+ [ 2.54  4.54  4.1   1.86  3.21  1.76  1.87  3.36  0.62  0.82]]
+vecteur des outputs
+[ 1.  0.  1.  0.  0.  1.  0.  1.  0.  1.]
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_37_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Nous aimerions connaître l'effet des inputs sur la probabilité de survie
+des bactéries. Nous supposons alors que l'output a la loi suivante :
+
+\begin{verbatim}
+  Y[i] ~  Bernoulli(p = μ[i] ),  μ[i] =  sigmoid(w . x[i])
+\end{verbatim}
+
+avec * \texttt{sigmoid(t)\ =\ exp(t)\ /\ (1\ +\ exp(t))} est une
+fonction croissante qui a le bon goût d'arriver dans {[}0,1{]}, ce qui
+fournit donc une probabilité. *
+\texttt{w\ =(w{[}0{]},w{[}1{]},w{[}2{]})} est un vecteur de 3
+paramètres. Le premier paramètre \texttt{w{[}0{]}}est le biais
+(=`intercept') * \texttt{w\ .\ x{[}i{]}} est le produit scalaire entre
+\texttt{w} et la i-ième ligne de l'input \texttt{x}. Attention, il
+s'agit de l'input étendu \texttt{x{[}i,:{]}=(1,x1{[}i{]},x2{[}i{]})}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on ajoute une colonne de 1 (on pourrait aussi utiliser np.concatenate)\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{x}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         
+         \PY{n}{glm} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x}\PY{p}{,}  \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Binomial}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{glm}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{res}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:} <class 'statsmodels.iolib.summary.Summary'>
+         """
+                          Generalized Linear Model Regression Results                  
+         ==============================================================================
+         Dep. Variable:                      y   No. Observations:                 1000
+         Model:                            GLM   Df Residuals:                      997
+         Model Family:                Binomial   Df Model:                            2
+         Link Function:                  logit   Scale:                             1.0
+         Method:                          IRLS   Log-Likelihood:                -170.81
+         Date:                Wed, 06 Jun 2018   Deviance:                       341.63
+         Time:                        09:34:09   Pearson chi2:                     889.
+         No. Iterations:                     8                                         
+         ==============================================================================
+                          coef    std err          z      P>|z|      [0.025      0.975]
+         ------------------------------------------------------------------------------
+         const        -14.2051      1.106    -12.845      0.000     -16.373     -12.038
+         x1             3.6980      0.285     12.981      0.000       3.140       4.256
+         x2             2.0054      0.177     11.314      0.000       1.658       2.353
+         ==============================================================================
+         """
+\end{Verbatim}
+            
+    \texttt{statmodel} nous indique que les paramètres qui maximisent la
+vraisemblance des données sont approximativement:
+
+\begin{verbatim}
+w = [-14.2,3.6,2.0]
+\end{verbatim}
+
+\textbf{\emph{Exo:}} supposons que l'on ait une bactérie que l'on a
+nourrit avec 3 callories et 0.5 littre d'oxigène. Quelle est sa
+probabilité de survie?
+
+    *** A vous:***
+
+Découpez le jeu de données en 2 parties. Une partie \texttt{train} (800
+lignes) et une partie \texttt{test} (200 lignes). Vous obtiendrez ainsi
+2 matrices \texttt{x\_test} et \texttt{x\_train} et 2 vecteurs
+\texttt{y\_test} et \texttt{y\_train}
+
+Estimez \texttt{w} à partir du jeu train. Puis pour chaque élément du
+jeu \texttt{test} estimez une probabilité de survie
+\texttt{hat\_y\_test\_proba}. Calculez:
+
+\begin{verbatim}
+hat_y_test = (hat_y_test_proba>0.5)
+\end{verbatim}
+
+comparez \texttt{hat\_y\_test} et \texttt{y\_test}
+
+    \hypertarget{donnuxe9es-groupuxe9es}{%
+\subsubsection{Données groupées}\label{donnuxe9es-groupuxe9es}}
+
+Dans le jeu de données suivant, chaque ligne représente un lot bactérie.
+Les inputs ont la même signification: quantité de nourriture, quantité
+d'oxygène (par bactérie). Mais maintenant la sortie comporte deux
+colonnes:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{y{[}i,0{]}} : nombre de bactérie vivante dans le lot
+  \texttt{i}
+\item
+  \texttt{y{[}i,1{]}} : nombre de bactérie morte dans le lot \texttt{i}
+\end{itemize}
+
+Observons les 10 premiers lots de bactéries\ldots{}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{x}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/bacteria\PYZus{}grouped\PYZus{}x.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{y}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/bacteria\PYZus{}grouped\PYZus{}y.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{matrice des inputs (transposée)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{.}\PY{n}{T}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{matrice des outputs (transposée)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{o}{.}\PY{n}{T}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+matrice des inputs (transposée)
+[[ 1.82  3.84  2.39  3.62  0.32  4.14  1.66  0.56  1.91  1.9 ]
+ [ 2.95  2.3   2.86  3.86  4.02  0.07  3.09  1.65  3.38  3.59]]
+matrice des outputs (transposée)
+[[  2.  10.   4.   8.   0.   4.   1.   0.   1.   4.]
+ [  4.   0.   3.   0.   5.   1.   8.  10.   6.   2.]]
+
+    \end{Verbatim}
+
+    Il est naturel de reprendre le modèle précédent, mais en remplaçant la
+bernoulli par une binomiale:
+
+\begin{verbatim}
+    Loi(Y[i,0]) = Binomiale(n[i] , p = μ[i] ),     μ[i] =  sigmoid(w . x[i]) ,  n[i]= Y[i,0]+Y[i,1]
+\end{verbatim}
+
+Voici ce que donne l'estimateur de maximum de vraissemblance\ldots{}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{n}{x}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+         \PY{n}{glm} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x}\PY{p}{,}  \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Binomial}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{glm}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{n}{res}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}19}]:} <class 'statsmodels.iolib.summary.Summary'>
+         """
+                          Generalized Linear Model Regression Results                  
+         ==============================================================================
+         Dep. Variable:           ['y1', 'y2']   No. Observations:                 1000
+         Model:                            GLM   Df Residuals:                      997
+         Model Family:                Binomial   Df Model:                            2
+         Link Function:                  logit   Scale:                             1.0
+         Method:                          IRLS   Log-Likelihood:                -557.92
+         Date:                Wed, 06 Jun 2018   Deviance:                       528.92
+         Time:                        09:34:10   Pearson chi2:                     92.1
+         No. Iterations:                     8                                         
+         ==============================================================================
+                          coef    std err          z      P>|z|      [0.025      0.975]
+         ------------------------------------------------------------------------------
+         const        -15.3275      0.456    -33.639      0.000     -16.221     -14.434
+         x1             4.0739      0.119     34.322      0.000       3.841       4.307
+         x2             2.0445      0.068     29.909      0.000       1.910       2.178
+         ==============================================================================
+         """
+\end{Verbatim}
+            
+    \hypertarget{analyse-dun-vrai-jeu-de-donnuxe9e}{%
+\subsubsection{Analyse d'un vrai jeu de
+donnée}\label{analyse-dun-vrai-jeu-de-donnuxe9e}}
+
+Nous allons étudier un jeu de données inclus dans \texttt{statsmodel}.
+Toutes les informations sur ces données sont disponibles en effectuant:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \BuiltInTok{print}\NormalTok{(sm.datasets.star98.NOTE)}
+\end{Highlighting}
+\end{Shaded}
+
+On y découvre qu'il y a: * 303 lignes, chaque ligne correspondant à un
+``county'' (=zone géographique) de californie. * 13 variables auquelles
+s'ajoutent 8 variables d'interaction (= des combinaisons des 13
+premières).
+
+Parmis ces 13 variables, les 2 premières sont l'output qui nous
+intéresse: * nb étudiant \textgreater{} médiane nationale (pour chaque
+county) * nb étudiant \textless{} médiane nationale (pour chaque county)
+
+Les autres variables seront nos inputs, on y trouve notamment: *
+pourcentage d'étudiant par minorité ethnique (Asian,black,hispanic) *
+ratio étudiant/prof * pourcentage d'étudiant de faible revenu (low
+income)
+
+Nous allons voir l'influence des revenus sur la réussite des études.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{data} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{star98}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.exog.shape}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{data}\PY{o}{.}\PY{n}{exog}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.endog.shape}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{data}\PY{o}{.}\PY{n}{endog}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.endog\PYZus{}name}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{data}\PY{o}{.}\PY{n}{endog\PYZus{}name}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data.exog\PYZus{}name}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{data}\PY{o}{.}\PY{n}{exog\PYZus{}name}\PY{p}{)}
+         
+             
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+data.exog.shape (303, 20)
+data.endog.shape (303, 2)
+data.endog\_name ['NABOVE', 'NBELOW']
+data.exog\_name ['LOWINC', 'PERASIAN', 'PERBLACK', 'PERHISP', 'PERMINTE', 'AVYRSEXP', 'AVSALK', 'PERSPENK', 'PTRATIO', 'PCTAF', 'PCTCHRT', 'PCTYRRND', 'PERMINTE\_AVYRSEXP', 'PERMINTE\_AVSAL', 'AVYRSEXP\_AVSAL', 'PERSPEN\_PTRATIO', 'PERSPEN\_PCTAF', 'PTRATIO\_PCTAF', 'PERMINTE\_AVYRSEXP\_AVSAL', 'PERSPEN\_PTRATIO\_PCTAF']
+
+    \end{Verbatim}
+
+    On s'apperçoit qu'il y a en fait 20+2 variables (alors que la
+description en annonçait 13+8 ?!).
+
+Nous prenons comme descripteur tout le tableau \texttt{data.exog}. Une
+meilleure stratégie serait de créer nous même nos input : par exemple,
+ne pas prendre les intéractions proposées, et de recréer nous même des
+interactions qui nous semble significatives.
+
+\textbf{\emph{A vous:}} analyser le programme suivant.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{data} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{star98}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{p}{)}
+         \PY{n}{x} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{exog}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on rajoute la constante à la fin, ainsi la variable zéro sera \PYZsq{}LOWINC\PYZsq{} =pourcentage d\PYZsq{}étudiant ayant un faible revenu \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{x} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{add\PYZus{}constant}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{prepend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+         \PY{n}{y} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{endog}
+         
+         
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} le descripteur d\PYZsq{}un étudiant \PYZsq{}moyen\PYZsq{}  \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{means} \PY{o}{=} \PY{n}{x}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{means}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{means}\PY{p}{)}
+         
+         
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} et voici l\PYZsq{}étudiant \PYZsq{}moyen\PYZsq{}  mais qui gagne peu d\PYZsq{}argent \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{means25} \PY{o}{=} \PY{n}{means}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{means25}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{stats}\PY{o}{.}\PY{n}{scoreatpercentile}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{25}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{means of exog}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{means25}\PY{p}{)}
+         
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} et voici l\PYZsq{}étudiant moyen mais qui gagne pas mal d\PYZsq{}argent \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{means75} \PY{o}{=} \PY{n}{means}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{means75}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}  \PY{o}{=} \PY{n}{stats}\PY{o}{.}\PY{n}{scoreatpercentile}\PY{p}{(}\PY{n}{x}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{75}\PY{p}{)}
+         
+         
+         \PY{n}{model} \PY{o}{=} \PY{n}{sm}\PY{o}{.}\PY{n}{GLM}\PY{p}{(}\PY{n}{endog}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{n}{x}\PY{p}{,} \PY{n}{family}\PY{o}{=}\PY{n}{sm}\PY{o}{.}\PY{n}{families}\PY{o}{.}\PY{n}{Binomial}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{n}{res} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{resp\PYZus{}25} \PY{o}{=} \PY{n}{res}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{means25}\PY{p}{)}
+         \PY{n}{resp\PYZus{}75} \PY{o}{=} \PY{n}{res}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{means75}\PY{p}{)}
+         \PY{n}{diff} \PY{o}{=} \PY{n}{resp\PYZus{}75} \PY{o}{\PYZhy{}} \PY{n}{resp\PYZus{}25}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} que signifie cette différence ? Le signe \PYZsq{}moins\PYZsq{} ne vous semble\PYZhy{}t\PYZhy{}il pas contre intuitif ?}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{diff:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{diff}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+means
+ [    41.41      5.9       5.64     34.4      14.69     14.25     58.64      4.32     22.46     33.63      1.18     11.61    209.02    879.98    839.72     96.3     147.24    747.45  12585.27   3243.61      1.  ]
+means of exog
+ [    26.68      5.9       5.64     34.4      14.69     14.25     58.64      4.32     22.46     33.63      1.18     11.61    209.02    879.98    839.72     96.3     147.24    747.45  12585.27   3243.61      1.  ]
+diff: [-0.12]
+
+    \end{Verbatim}
+
+    \textbf{\emph{Exo:}} critiquez cette étude. Mathématiquement: n'y a-t-il
+pas un problème avec les variables d'interaction ? Sociologiquement:
+est-ce que la variable revenus (``incomes'') est un bon indicateur pour
+savoir si l'étudiant finance facilement ses études?
+
+    \hypertarget{exo}{%
+\subsubsection{Exo:}\label{exo}}
+
+Ci-dessous :
+
+\begin{itemize}
+\tightlist
+\item
+  x: nombre d'heure de travail
+\item
+  y: réussite de l'intéro.
+\end{itemize}
+
+Quelle est la probabilité de réussite si je travaille 5 minutes ? 1
+heure ?
+
+Quelle est le minimum de travail à fournir si je veux avoir 50\% de
+chance de réussir ?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{n}{x}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{2.427}\PY{p}{,} \PY{l+m+mf}{1.474}\PY{p}{,} \PY{l+m+mf}{0.396}\PY{p}{,} \PY{l+m+mf}{1.009}\PY{p}{,} \PY{l+m+mf}{3.424}\PY{p}{,} \PY{l+m+mf}{0.068}\PY{p}{,} \PY{l+m+mf}{4.682}\PY{p}{,} \PY{l+m+mf}{2.892}\PY{p}{,} \PY{l+m+mf}{3.351}\PY{p}{,} \PY{l+m+mf}{2.229}\PY{p}{,} \PY{l+m+mf}{1.78}\PY{p}{,} \PY{l+m+mf}{4.742}\PY{p}{,} \PY{l+m+mf}{2.184}\PY{p}{,} \PY{l+m+mf}{1.326}\PY{p}{,} \PY{l+m+mf}{3.446}\PY{p}{,} \PY{l+m+mf}{0.176}\PY{p}{,}
+              \PY{l+m+mf}{0.549}\PY{p}{,} \PY{l+m+mf}{1.919}\PY{p}{,} \PY{l+m+mf}{0.096}\PY{p}{,} \PY{l+m+mf}{1.378}\PY{p}{,} \PY{l+m+mf}{3.483}\PY{p}{,} \PY{l+m+mf}{0.309}\PY{p}{,} \PY{l+m+mf}{0.857}\PY{p}{,} \PY{l+m+mf}{1.079}\PY{p}{,} \PY{l+m+mf}{0.386}\PY{p}{,} \PY{l+m+mf}{1.02}\PY{p}{,} \PY{l+m+mf}{2.882}\PY{p}{,} \PY{l+m+mf}{1.538}\PY{p}{,} \PY{l+m+mf}{3.628}\PY{p}{,} \PY{l+m+mf}{3.812}\PY{p}{,} \PY{l+m+mf}{0.602}\PY{p}{,} \PY{l+m+mf}{2.423}\PY{p}{,}
+              \PY{l+m+mf}{3.109}\PY{p}{,} \PY{l+m+mf}{0.996}\PY{p}{,} \PY{l+m+mf}{0.202}\PY{p}{,} \PY{l+m+mf}{0.975}\PY{p}{,} \PY{l+m+mf}{1.645}\PY{p}{,} \PY{l+m+mf}{2.082}\PY{p}{,} \PY{l+m+mf}{1.114}\PY{p}{,} \PY{l+m+mf}{2.442}\PY{p}{,} \PY{l+m+mf}{0.486}\PY{p}{,}
+              \PY{l+m+mf}{1.5}\PY{p}{,} \PY{l+m+mf}{3.827}\PY{p}{,} \PY{l+m+mf}{3.235}\PY{p}{,} \PY{l+m+mf}{4.192}\PY{p}{,} \PY{l+m+mf}{1.716}\PY{p}{,} \PY{l+m+mf}{1.969}\PY{p}{,} \PY{l+m+mf}{0.385}\PY{p}{,} \PY{l+m+mf}{1.371}\PY{p}{,} \PY{l+m+mf}{2.044}\PY{p}{,} \PY{l+m+mf}{4.498}\PY{p}{,} \PY{l+m+mf}{0.361}\PY{p}{,} \PY{l+m+mf}{2.053}\PY{p}{,} \PY{l+m+mf}{4.866}\PY{p}{,} \PY{l+m+mf}{4.136}\PY{p}{,} \PY{l+m+mf}{3.646}\PY{p}{,} \PY{l+m+mf}{1.475}\PY{p}{,} \PY{l+m+mf}{4.907}\PY{p}{,} \PY{l+m+mf}{0.532}\PY{p}{,} \PY{l+m+mf}{4.984}\PY{p}{,} \PY{l+m+mf}{1.834}\PY{p}{,} \PY{l+m+mf}{2.19}\PY{p}{,} \PY{l+m+mf}{1.758}\PY{p}{,} \PY{l+m+mf}{0.713}\PY{p}{,} \PY{l+m+mf}{1.45}\PY{p}{,} \PY{l+m+mf}{3.342}\PY{p}{,} \PY{l+m+mf}{2.125}\PY{p}{,} \PY{l+m+mf}{4.293}\PY{p}{,} \PY{l+m+mf}{3.691}\PY{p}{,} \PY{l+m+mf}{3.189}\PY{p}{,} \PY{l+m+mf}{1.416}\PY{p}{,} \PY{l+m+mf}{0.531}\PY{p}{,} \PY{l+m+mf}{3.111}\PY{p}{,} \PY{l+m+mf}{3.505}\PY{p}{,} \PY{l+m+mf}{2.498}\PY{p}{,} \PY{l+m+mf}{0.888}\PY{p}{,} \PY{l+m+mf}{2.861}\PY{p}{,} \PY{l+m+mf}{3.741}\PY{p}{,} \PY{l+m+mf}{1.956}\PY{p}{,} \PY{l+m+mf}{1.879}\PY{p}{,} \PY{l+m+mf}{0.942}\PY{p}{,} \PY{l+m+mf}{4.699}\PY{p}{,} \PY{l+m+mf}{4.932}\PY{p}{,} \PY{l+m+mf}{1.875}\PY{p}{,} \PY{l+m+mf}{2.023}\PY{p}{,} \PY{l+m+mf}{2.473}\PY{p}{,} \PY{l+m+mf}{4.438}\PY{p}{,} \PY{l+m+mf}{2.781}\PY{p}{,} \PY{l+m+mf}{2.348}\PY{p}{,} \PY{l+m+mf}{4.696}\PY{p}{,} \PY{l+m+mf}{2.708}\PY{p}{,} \PY{l+m+mf}{1.392}\PY{p}{,} \PY{l+m+mf}{2.221}\PY{p}{,} \PY{l+m+mf}{4.882}\PY{p}{,} \PY{l+m+mf}{1.679}\PY{p}{,} \PY{l+m+mf}{4.936}\PY{p}{,} \PY{l+m+mf}{0.104}\PY{p}{,} \PY{l+m+mf}{0.224}\PY{p}{,} \PY{l+m+mf}{2.685}\PY{p}{,} \PY{l+m+mf}{1.662}\PY{p}{]}
+         \PY{n}{y}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,}
+              \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,}
+              \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{;}
+\end{Verbatim}
+
+
+    \hypertarget{moduxe8le-multinomial-pour-la-classification-multi-classes}{%
+\section{Modèle multinomial pour la classification
+multi-classes}\label{moduxe8le-multinomial-pour-la-classification-multi-classes}}
+
+Dans le jeu suivant l'output \texttt{Y} peut avoir 7 valeurs
+différentes, chaque valeur correspondant à un type de verre. On est donc
+en présence d'un problème de classification à 7 classes. Les inputs sont
+les composants chimiques présents dans le verre, ainsi que l'indice de
+réfraction \texttt{RI}.
+
+Considérons un vecteur \texttt{p={[}p{[}0{]},...,p{[}6{]}{]}} notons
+
+\begin{verbatim}
+    Y ~  MultiBernoulli(p)   <=>  P[Y=k]= p[k]
+\end{verbatim}
+
+C'est la loi la plus simple qui couvre 7 valeurs différentes. On aurait
+aussi pu la noter \texttt{Multinomiale(1,p)}.
+
+Le modèle naturel pour nos données est:
+
+\begin{verbatim}
+    Y[i] ~ MultiBernoulli(p=μ[i,:]),      μ[i,:] =  solftmax( w . x[i])     
+\end{verbatim}
+
+où * \texttt{μ{[}i,:{]}} est le vecteur des probabilités des 7 classes
+relatives à la donnée \texttt{i}. * \texttt{w} est une matrice de
+paramètre de taille nbClasses × nbInputs. Ainsi le produit matriciel
+\texttt{w\ .\ x{[}i{]}} donne un vecteur de taille nbClasses=7 *
+solftmax est une fonction transformant n'importe quel vecteur \(v\) en
+un vecteur de probabilité : \[
+        \verb $solftmax$( [v_0,...,v_6] )\ \ = \ \  \Big[ \frac {e^{v_0}}{C},...,\frac {e^{v_6}}{C}    \Big] ,  \qquad 
+        C=  {e^{v_0}} + ... +  {e^{v_6}}
+\] La vraissemblance est extrèmement simple, et le maximum de
+vraissemblance donne: \[
+\hat w  = \hbox{argmax}_w  \prod_i    \Big (  \verb IsoftmaxI (W\cdot x_i)  _{y_i}    \Big)
+\] (on se souvient que \(\verb IsoftmaxI (W\cdot x_i)\) est un vecteur
+de taille nbClasses, et que \(y_i\) est l'indice de la classe associée à
+l'input \(x_i\))
+
+    Observons les données. Nous utilisons pour cela pandas qui crée une
+dataframe: une matrice avec des noms pour les colonnes.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{glass\PYZus{}data\PYZus{}headers} \PY{o}{=} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Id}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{RI}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Na}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mg}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Al}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Si}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{K}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ca}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ba}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Fe}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{glass\PYZhy{}type}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+         \PY{n}{glass\PYZus{}data} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{data/glass.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{n}{glass\PYZus{}data\PYZus{}headers}\PY{p}{)}
+         \PY{n}{glass\PYZus{}data}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}23}]:}    Id       RI     Na    Mg    Al     Si     K    Ca   Ba    Fe  glass-type
+         0   1  1.52101  13.64  4.49  1.10  71.78  0.06  8.75  0.0  0.00           1
+         1   2  1.51761  13.89  3.60  1.36  72.73  0.48  7.83  0.0  0.00           1
+         2   3  1.51618  13.53  3.55  1.54  72.99  0.39  7.78  0.0  0.00           1
+         3   4  1.51766  13.21  3.69  1.29  72.61  0.57  8.22  0.0  0.00           1
+         4   5  1.51742  13.27  3.62  1.24  73.08  0.55  8.07  0.0  0.00           1
+         5   6  1.51596  12.79  3.61  1.62  72.97  0.64  8.07  0.0  0.26           1
+         6   7  1.51743  13.30  3.60  1.14  73.09  0.58  8.17  0.0  0.00           1
+         7   8  1.51756  13.15  3.61  1.05  73.24  0.57  8.24  0.0  0.00           1
+         8   9  1.51918  14.04  3.58  1.37  72.08  0.56  8.30  0.0  0.00           1
+         9  10  1.51755  13.00  3.60  1.36  72.99  0.57  8.40  0.0  0.11           1
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} observons la répartition des classes de verre \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{vc}\PY{o}{=}\PY{n}{glass\PYZus{}data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{glass\PYZhy{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{n}{dropna}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} cela donne un dictionnaire, que nous affichons en le classant \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{k}{for} \PY{n}{key}\PY{p}{,}\PY{n}{value} \PY{o+ow}{in} \PY{n+nb}{sorted}\PY{p}{(}\PY{n}{vc}\PY{o}{.}\PY{n}{items}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{classe:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{key}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{effectif:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{value}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+classe: 1 effectif: 70
+classe: 2 effectif: 76
+classe: 3 effectif: 17
+classe: 5 effectif: 13
+classe: 6 effectif: 9
+classe: 7 effectif: 29
+
+    \end{Verbatim}
+
+    Nous allons ajuster deux modèles. Nous leur ferons ensuite prédire des
+types de verre.
+
+\begin{itemize}
+\tightlist
+\item
+  le premier modèle est le modèle multiBernouilli (=multinomial) décrit
+  précédemment
+\item
+  le second modèle est le modèle logistique-généralisé: le modèle
+  logistique de base prédit des probilités pour 2 classes
+  (classification binaire). Il se généralise ainsi: on teste chacune des
+  classes contre l'ensemble de toutes les autres; on garde à la fin la
+  classe qui obtient la meilleure probabilité (même si cette probabilité
+  est \textless{}0.5).
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on utilise le module sklearn et non plus statsmodel \PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{cross\PYZus{}validation} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{linear\PYZus{}model}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{metrics}
+         
+         \PY{n}{x}\PY{o}{=}\PY{n}{glass\PYZus{}data}\PY{p}{[}\PY{n}{glass\PYZus{}data\PYZus{}headers}\PY{p}{[}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+         \PY{n}{y}\PY{o}{=}\PY{n}{glass\PYZus{}data}\PY{p}{[}\PY{n}{glass\PYZus{}data\PYZus{}headers}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+         
+         \PY{n}{train\PYZus{}x}\PY{p}{,} \PY{n}{test\PYZus{}x}\PY{p}{,} \PY{n}{train\PYZus{}y}\PY{p}{,} \PY{n}{test\PYZus{}y} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,} \PY{n}{train\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.7}\PY{p}{)}
+         
+         
+         \PY{c+c1}{\PYZsh{} modèle multinomial}
+         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} on doit aussi précisser un solveur (=la technique pour trouver le maximum de vraissemblance). Tout ceci est bien}
+         \PY{l+s+sd}{expliqué sur la page de sklearn\PYZdq{}\PYZdq{}\PYZdq{}}
+         \PY{n}{model\PYZus{}1} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{multi\PYZus{}class}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{multinomial}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{newton\PYZhy{}cg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{model\PYZus{}1}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{train\PYZus{}x}\PY{p}{,} \PY{n}{train\PYZus{}y}\PY{p}{)}
+         
+         
+         \PY{c+c1}{\PYZsh{} modèle logistique généralisé au multi\PYZhy{}classes}
+         \PY{n}{model\PYZus{}2} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model\PYZus{}2}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{train\PYZus{}x}\PY{p}{,} \PY{n}{train\PYZus{}y}\PY{p}{)}
+         
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{model\PYZus{}1 Accuracy : }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{.}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{test\PYZus{}y}\PY{p}{,} \PY{n}{model\PYZus{}1}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{test\PYZus{}x}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{model\PYZus{}2 Accuracy : }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metrics}\PY{o}{.}\PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{test\PYZus{}y}\PY{p}{,} \PY{n}{model\PYZus{}2}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{test\PYZus{}x}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+model\_1 Accuracy :  1.0
+model\_2 Accuracy :  0.8
+
+    \end{Verbatim}
+
+    L'accuracy (pourcentage de bien classé) est extrèmement bonne. C'est
+très suspect! Mais il y a une grosse erreur de méthodologie dans le
+programme précédent (erreur que l'on rencontre très souvent sur les
+tutos qu'on trouve en ligne). Corrigez-la!
+
+Aide: observez-bien les input.
+
+    \textbf{\emph{Remarque:}} ci-dessus, on a utilisé la librairie
+\texttt{sklearn} et non plus \texttt{statsmodel}. On est ainsi passé de
+la communauté des statisticiens à la communauté des datascientist. Ces
+derniers préfèrent des techniques qui s'éloignent de l'interprétation
+probabiliste. Par exemple, en voyant la formule ci-dessous: \[
+\hat w  = \hbox{argmin}_w  \sum_i -\log   \Big (  \verb IsoftmaxI (W\cdot x_i)  _{y_i}    \Big)
+\] le datascientist pensera minimiser une distance cross-entropie, alors
+que le statisticien verra un maximum de vraissemblance en la reformulant
+comme ceci: \[
+\hat w  = \hbox{argmax}_w  \prod_i    \Big (  \verb IsoftmaxI (W\cdot x_i)  _{y_i}    \Big)
+\]
+
+    \hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+Nous avons effectué: * de la regression = output quantifatif * de la
+classification = output qualitatif
+
+Nous avons modélisé chacun des jeux de données par des v.a dont la loi
+nous semblait naturelle; ces lois dépendant d'un paramètre \(w\). Parmis
+tous les \(w\) possibles nous choisissions le \(\hat w\) qui rendait le
+plus vraissemblable les données observées.
+
+\textbf{\emph{Ce n'est pas fini:}} Nous n'avons considéré que des cas
+d'école, où tous les inputs étaient quantitatifs. Il nous faut encore
+apprendre à: * gérer les input qualitatifs. Par exemple: le sexe du
+conducteur pour l'assureur, le nom du quartier pour l'agent immobilié.
+Ces variable qualitatives ont très souvent des effets multiplicatifs sur
+l'output. * retraiter les input (valeurs abhérantes, valeurs manquante,
+ordre de grandeurs trop important) * sélectionner des inputs (ex: avec
+la p-value), sélectionner des modèles (ex: pénalisation) *
+rajouter/modifier des inputs * juger la qualité d'ajustement d'un modèle
+
+    \textbf{\emph{Pour aller plus loin 1:}} Il y avait un point commun à
+toutes les lois utilisées précédemment: elles appartiennent à la famille
+``exponentielle''; une famille qui contient presque toutes les lois
+usuelles (discrètes et continues) avec comme exception notoire: la loi
+uniforme. Vous pouvez vous renseigner sur cette famille exponentielle,
+elle permet de donner un cadre théorique commun à tous les algorithmes
+que nous avons fait tourner pour estimer \(w\).
+
+    \textbf{\emph{Pour aller plus loin 2:}} Si vous voulez faire le pont
+entre la communauté des statisticiens et celle des datascientists, voici
+quelques explications supplémentaires. Pour construire un modèle un
+datascientist tentera de trouver une fonction \(f(x,w)\) qui, pour un
+certain \(w\), modélise le lien entre \(x\) et \(y\). Il règlera le
+paramètre \(w\) en choisissant une distance \(dist\) puis en cherchant:
+\[
+\hat w  = \mathrm{argmin}_w  \sum_i  dist \Big( f(x_i  ,w) , y_i \Big)  
+\] La fonction \(x \to f(x,\hat w)\) permettra finalement de faire de la
+prédiction.
+
+Maintenant, s'il cherche une densité à coller sur les données, il fera
+plutôt: \[
+\hat w  = \mathrm{argmin}_w  \sum_i  dist \Big( L (x_i, \cdot  ,w) , y_i \Big)  
+\] où la \(dist\) est une distance entre une densité
+\(y \to L (x_i, y ,w)\) et une observation \(y_i\) (ex: cette distance
+est petite si la densité est une cloche resserrée autour de
+l'observation). En particulier, en prenant comme distance la distance
+crossEntropique, à savoir: \[
+ dist \Big( L (x_i, \cdot  ,w) , y_i \Big)    =  -\log L(x_i,y_i,w) 
+\] On voit facilement que le problème minimisation ci-dessus est
+exactement la technique du maximum de vraissemblance décrite dans
+l'introduction; la fonction log permettant de passer de \(\prod\) à
+\(\sum\).
+
+Bien entendu, de nombreuses techniques de datascience et/ou de
+statistique sortent de ce cadre. Citons par exemple la technique des
+\(k\)-plus proches voisins, dans laquelle on ne cherche pas du tout à
+inventer une distribution pour nos données; on se contente de faire de
+la prédiction: quand on dispose d'un nouvel output \(x'\), on choisis
+\(y'\) comme étant le ``barycentre'' des \(k\) ouputs \(y_i\)
+correspondant aux \(x_i\) proches de \(x'\).
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
