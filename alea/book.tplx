@@ -35,6 +35,11 @@
 \definecolor{pythonblue}{rgb}{0.21,0.45,0.65}
 \definecolor{pythonyellow}{rgb}{1.,0.77,0.18}
 
+
+\parindent=0pt   
+\setlength{\parskip}{2ex plus 1.4ex minus 0.8ex}
+
+
 ((* endblock docclass *))
 
 ((* block markdowncell scoped *))
@@ -47,13 +52,13 @@
   \vspace*{\baselineskip} 
   
   \centering  
-  {\Large Matthieu Boileau \& Vincent Legoll}
+  {\Large Vincent Vigon}
   \vspace*{0.167\textheight} 
   
   \raggedleft
-  \textbf{\fontsize{30}{36}\selectfont Apprendre}\\[\baselineskip] 
-  \textbf{\textcolor{pythonblue}{\fontsize{50}{60}\selectfont Python}}\\[\baselineskip]  
-  \textcolor{pythonyellow}{\fontsize{30}{36}\selectfont \textit{pour les sciences}}
+  \textbf{\fontsize{30}{36}\selectfont Python}\\[\baselineskip] 
+ % \textbf{\textcolor{pythonblue}{\fontsize{50}{60}\selectfont Python}}\\[\baselineskip]  
+  \textcolor{pythonyellow}{\fontsize{30}{36}\selectfont \textit{pour les proba-stats}}
   
   \vspace*{0.1\textheight} 
 
@@ -62,7 +67,7 @@
 
   \vfill 
 
-  {\large CNRS - Université de Strasbourg} 
+  {\large Université de Strasbourg} 
   
 \end{titlepage}
 ((* endblock maketitle *))
