@@ -1,42 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32cccc82-0ffe-41c7-b11c-72a65c78617f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="32cccc82-0ffe-41c7-b11c-72a65c78617f" name="Default" comment="ajout de l'integration continue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/02-histogramme_densite-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/04-plusDeLois-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/08-Chaine_de_Markov-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/10-RadomVec_GaussianVec-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/11-Analyse_en_composantes_principales-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/12-GLM-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/N00_python_de_base-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/N01_numpy-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/N02_histogramme_densite-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/N04_plusDeLois-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/.ipynb_checkpoints/N06_TCL_student-checkpoint.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/04-plusDeLois.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/04-plusDeLois.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/08-Chaine_de_Markov.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/08-Chaine_de_Markov.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/11-Analyse_en_composantes_principales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/11-Analyse_en_composantes_principales.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/02-histogramme_densite.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/02-histogramme_densite.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/02-histogramme_densite.slides.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/04-plusDeLois.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/04-plusDeLois.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/04-plusDeLois.slides.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/.~lock.graph_ponder.odg#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/discrep.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/distributions.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/graph_ponder.odg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/graph_ponder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/identite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/iris.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/pageRank.odg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/pageRank.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/troisEtats.odg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/build/img/troisEtats.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/index.ipynbt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/alea/makefile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,38 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="00-python_de_base.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alea/00-python_de_base.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="06-TCL_intervalConfiance_student.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alea/06-TCL_intervalConfiance_student.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="04-plusDeLois.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alea/04-plusDeLois.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="108">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -155,6 +95,7 @@
         <option value="$PROJECT_DIR$/alea/matos/gaussian-processes-1.ipynb" />
         <option value="$PROJECT_DIR$/alea/10-gaussianVector_ACP.ipynb" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
       </list>
     </option>
   </component>
@@ -186,6 +127,11 @@
             <path>
               <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
               <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+              <item name="alea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
@@ -333,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528376683155</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ajout de l'integration continue">
+      <created>1530002073109</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1530002073109</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -371,7 +324,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="toto" />
-    <option name="LAST_COMMIT_MESSAGE" value="toto" />
+    <MESSAGE value="ajout de l'integration continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de l'integration continue" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data_analysis/D12_GLM/pack/toto.py">
@@ -574,10 +528,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="108">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
