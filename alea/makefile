@@ -11,7 +11,7 @@ else
 endif
 
 html := $(addprefix build/, $(subst .ipynb,.html,$(notebooks)))
-slides := $(addprefix build/, $(subst .ipynb,.slides.html,$(notebooks)))
+#slides := $(addprefix build/, $(subst .ipynb,.slides.html,$(notebooks)))
 executed_notebooks := $(addprefix build/, $(notebooks))
 
 .PHONY: all clean html slides executed_notebooks index copy_to_build pdf
@@ -29,7 +29,7 @@ to run them without internet connection)"
 executed_notebooks: copy_to_build $(executed_notebooks)
 html: $(html)
 #slides: copy_reveal $(slides)
-slides:  $(slides)
+#slides:  $(slides)
 
 index: copy_to_build build/index.html
 pdf: copy_to_build build/cours-python.pdf
@@ -39,9 +39,11 @@ define nbconvert
 	jupyter nbconvert --to $(1) $< --output-dir=build
 endef
 
+# @ pour cacher la commande
 build:
 	@mkdir -p build
 
+#miroir entre img et build/img
 copy_to_build: build
 	rsync -ra --delete img build/
 
@@ -54,8 +56,8 @@ $(executed_notebooks): build/%.ipynb: %.ipynb
 build/%.html: build/%.ipynb
 	$(call nbconvert,html,$<)
 
-build/%.slides.html: build/%.ipynb
-	$(call nbconvert,slides,$<) --reveal-prefix $(revealprefix)
+#build/%.slides.html: build/%.ipynb
+#	$(call nbconvert,slides,$<) --reveal-prefix $(revealprefix)
 
 build/index.html: index.ipynb
 	$(call nbconvert,html,$<)
