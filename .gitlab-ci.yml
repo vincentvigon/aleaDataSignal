@@ -1,0 +1,16 @@
+pages:
+  tags:
+    - docker
+    - pages
+  only:
+    - master
+    - exercices
+  image: boileaum/jupyter
+  script:
+    - mkdir public
+    - cd alea
+    - make -j 7
+    - mv build ../public/alea
+  artifacts:
+    paths:
+      - public
