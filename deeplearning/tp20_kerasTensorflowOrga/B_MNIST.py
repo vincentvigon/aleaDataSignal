@@ -41,7 +41,6 @@ def step0():
     _hat_Y_proba = Hat_TwoConvLayers_28(freezeConv=True)(_X)
     _loss = - tf.reduce_mean(_Y_proba*tf.log(_hat_Y_proba+1e-10))
 
-
     _hat_Y = tf.cast(tf.argmax(_hat_Y_proba, axis=1),tf.int32)
     _accuracy = tf.reduce_mean(tf.cast(tf.equal(_hat_Y, _Y), tf.float32))
 
@@ -57,7 +56,6 @@ def step0():
     (x_train, y_train), (x_valid, y_valid) = mnist.load_data()
 
     (x_valid, y_valid)=(x_valid[:100,:,:,np.newaxis],y_valid[:100])
-
 
 
     with tf.Session() as sess:

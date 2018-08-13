@@ -16,9 +16,7 @@ from keras.datasets import mnist
 Même programme que précédemment, sauf que :
 * on enferme toute la partie tf dans une classe "Modèle" avec les 3 fameuses méthodes .fit() .validate() .predict()
 * on s'autorise de restorer le modèle depuis un apprentissage passé. 
-
 """
-
 
 
 class Model_TwoConv_28:
@@ -39,7 +37,6 @@ class Model_TwoConv_28:
         self._accuracy = tf.reduce_mean(tf.cast(tf.equal(self._hat_Y, self._Y), tf.float32))
 
         self._opt = tf.train.AdamOptimizer(self.lr).minimize(self._loss)
-
 
 
         """pour sauver les variables du modèle"""
@@ -89,7 +86,6 @@ class Model_TwoConv_28:
             print("=" * 100 + "\n")
 
         return self.loss, self.accuracy
-
 
 
 

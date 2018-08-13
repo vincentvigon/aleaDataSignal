@@ -1,0 +1,100 @@
+% Default to the notebook output style
+((* if not cell_style is defined *))
+    ((* set cell_style = 'style_ipython.tplx' *))
+((* endif *))
+
+% Inherit from the specified cell style.
+((* extends cell_style *))
+
+
+%===============================================================================
+% Latex Book
+%===============================================================================
+
+((* block predoc *))
+    ((( super() )))
+    ((* block tableofcontents *))\tableofcontents((* endblock tableofcontents *))
+((* endblock predoc *))
+
+((* block docclass *))
+%\documentclass[9pt, twocolumn, reprint, floatfix, groupaddress, prb, twoside,A4]{book}
+\documentclass[9pt, twocolumn, A4]{book}
+
+
+\usepackage[francais]{babel}    % Pour la langue française
+
+% Force floating figures to be [H]
+\usepackage{float}
+\floatplacement{figure}{H}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{makeidx}
+
+\usepackage[svgnames]{xcolor} % Required for colour specification
+
+\definecolor{pythonblue}{rgb}{0.21,0.45,0.65}
+\definecolor{pythonyellow}{rgb}{1.,0.77,0.18}
+
+
+\parindent=0pt
+\setlength{\parskip}{1.5ex plus 1.0ex minus 0.5ex}
+
+
+
+((* endblock docclass *))
+
+((* block markdowncell scoped *))
+((( cell.source | citation2latex | strip_files_prefix | convert_pandoc('markdown', 'json',extra_args=[]) | resolve_references | convert_pandoc('json','latex', extra_args=["--top-level-division=chapter"]) )))
+((* endblock markdowncell *))
+
+((* block maketitle *))
+\begin{titlepage}
+
+  \vspace*{\baselineskip} 
+  
+  \centering  
+  {\Large Vincent Vigon}
+  \vspace*{0.167\textheight} 
+  
+  \raggedleft
+  \textbf{\fontsize{30}{36}\selectfont Python}\\[\baselineskip] 
+ % \textbf{\textcolor{pythonblue}{\fontsize{50}{60}\selectfont Python}}\\[\baselineskip]  
+  \textcolor{pythonyellow}{\fontsize{30}{36}\selectfont \textit{pour les proba-stats}}
+  
+  \vspace*{0.1\textheight} 
+
+  \centering
+  \includegraphics{img/champi.jpg}
+
+  \vfill 
+
+  {\large Université de Strasbourg} 
+  
+\end{titlepage}
+((* endblock maketitle *))
+
+
+((*- block any_cell -*))
+((*- if not 'hide' in cell['metadata'].get('tags', {}) -*))
+((( super() )))
+((*- endif -*))
+((*- endblock any_cell -*))
+
+((* block input scoped *))
+    ((( add_my_prompt(cell.source | highlight_code(strip_verbatim=True), cell, 'In ', 'incolor') )))
+((* endblock input *))
+
+% Purpose: Renders an output/input prompt
+((* macro add_my_prompt(text, cell, prompt, prompt_color) -*))
+    ((*- if cell.execution_count is defined -*))
+    ((*- set execution_count = "" ~ (cell.execution_count | replace(None, " ")) -*))
+    ((*- else -*))
+    ((*- set execution_count = " " -*))
+    ((*- endif -*))
+    ((*- set indention =  " " * (execution_count | length) -*))
+\begin{spverbatim}[fontsize=\small,commandchars=\\\{\}]
+((( text | add_prompts(first='{\color{' ~ prompt_color ~ '}' ~ prompt ~ '[{\\color{' ~ prompt_color ~ '}' ~ execution_count ~ '}]:} ', cont=indention) )))
+\end{spverbatim}
+((*- endmacro *))

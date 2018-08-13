@@ -1,0 +1,8 @@
+lien libgen qui marche
+gen.lib.rus.ec/
+
+
+# orthographe
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable spellchecker/main

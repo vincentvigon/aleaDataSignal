@@ -1,0 +1,10 @@
+
+
+https://machinelearningmastery.com/develop-word-based-neural-language-models-python-keras/
+
+Celui-ci est extraimement complet et intéressant sur l'analyse de la parole:
+https://www.kaggle.com/davids1992/data-visualization-and-investigation
+Mais nos données ne sont pas vraiment des paroles.
+
+Je vais essayer de faire tourner celui là sur mon ordi, car il est très court.
+https://www.kaggle.com/ezietsman/simple-keras-model-with-data-generator

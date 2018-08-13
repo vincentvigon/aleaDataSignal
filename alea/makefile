@@ -1,5 +1,5 @@
-notebooks := 02-histogramme_densite.ipynb 04-plusDeLois.ipynb 
-						
+notebooks := 03-plot.ipynb
+
 # slide
 local_reveal := False
 ifeq ($(local_reveal),True)
@@ -16,7 +16,7 @@ executed_notebooks := $(addprefix build/, $(notebooks))
 
 .PHONY: all clean html slides executed_notebooks index copy_to_build pdf
 
-all: build html slides index pdf
+all: build index pdf
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -62,11 +62,11 @@ build/%.html: build/%.ipynb
 build/index.html: index.ipynb
 	$(call nbconvert,html,$<)
 
-build/cours-python.tex: executed_notebooks book.tplx
-	cd build && python3 -m bookbook.latex --output-file cours-python --template ../book.tplx
+build/cours-python.tex: executed_notebooks boook.tplx
+	cd build && python3 -m bookbook.latex --output-file cours-python --template ../boook.tplx
 
-build/cours-python.pdf: executed_notebooks book.tplx
-	cd build && python3 -m bookbook.latex --pdf --output-file cours-python --template ../book.tplx
+build/cours-python.pdf: executed_notebooks boook.tplx
+	cd build && python3 -m bookbook.latex --pdf --output-file cours-python --template ../boook.tplx
 
 clean:
 	rm -rf build

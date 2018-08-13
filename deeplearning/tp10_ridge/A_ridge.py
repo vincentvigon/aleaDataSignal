@@ -7,7 +7,10 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
 import sklearn.linear_model
+import os
 
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1, 2, 3"
 
 
 def genereData(nbData):
@@ -29,7 +32,6 @@ def step0():
     print(y.shape)
     print("x",x)
     print("y",y)
-
 
 
 
@@ -96,6 +98,8 @@ def step2():
 
 
 
+
+
 """ modèle  ridge : on rajoute une pénalisation  """
 def step3():
 
@@ -142,6 +146,7 @@ def step3():
 
     plt.plot(losses)
     plt.show()
+
 
 
 
