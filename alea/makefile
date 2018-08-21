@@ -1,4 +1,4 @@
-notebooks := 03-plot.ipynb
+notebooks := 00-python_de_base.ipynb 01-numpy.ipynb 02-plot.ipynb
 
 # slide
 local_reveal := False

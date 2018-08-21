@@ -2,70 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32cccc82-0ffe-41c7-b11c-72a65c78617f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/alea/02-plot.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/03-histogramme_densite.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/04-lois.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/05-technique_simulation.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/07-tests.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/12-linearModel.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/13-GLM.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/14-permuation_aleatoire.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/boook.tplx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/data/biereVin.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/data/vinCoca.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/data/youtuber_incomes.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/img/champi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/make_pdf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/poubel/boo.tplx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/poubel/book.tplx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alea/poubel/slides-in-a-notebook.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/04-principes.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/06-bases_de_pandas.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/07-stats-descriptives.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/08-end_to_end.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/12-selection_variables.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/loan_data.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/loan_data_preprossed.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/nat2015.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/oxydo_big_train.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/oxydo_test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/data/oxydo_train.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/datasets/housing/housing.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/datasets/housing/housing.tgz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/images/california.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_analysis/out/end_to_end_project/sinus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/A_extract_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/B_model_train_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/elu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/logs/1511911133.895062/events.out.tfevents.1511911135.MacBook-Pro-de-irma.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/readme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deeplearning/tp50_wordDetection/weights" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/00-python_de_base.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/00-python_de_base.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/01-numpy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/01-numpy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/02-histogramme_densite.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/04-plusDeLois.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/06-TCL_intervalConfiance_student.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/06-TCL_intervalConfiance_student.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/08-Chaine_de_Markov.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/08-Chaine_de_Markov.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/10-RadomVec_GaussianVec.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/alea/10-RadomVec_GaussianVec.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/12-GLM.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alea/book.tplx" beforeDir="false" afterPath="$PROJECT_DIR$/alea/poubel/bookOLD.tplx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/build/cours-python.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/build/img/marcheTransiente.gdraw" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/build/img/marcheTransiente.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/build/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/alea/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/alea/makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/.ipynb_checkpoints/linearModel-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/data/youtuber_incomes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/D_10_LinearModel/linearModel.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py" beforeDir="false" afterPath="$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py" beforeDir="false" afterPath="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" beforeDir="false" afterPath="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,104 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="makefile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="makefile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alea/makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="B_MNIST.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="e#2#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hat_TwoConvLayer_28.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/Hat_TwoConvLayer_28.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="C_saveRestore.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2628">
-              <caret line="149" selection-start-line="149" selection-end-line="149" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A_ridge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp10_ridge/A_ridge.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2718">
-              <caret line="151" selection-start-line="151" selection-end-line="151" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A_extract_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp50_wordDetection/A_extract_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4374">
-              <caret line="244" selection-start-line="244" selection-end-line="244" />
-              <folding>
-                <element signature="e#1#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="B_model_train_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deeplearning/tp50_wordDetection/B_model_train_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitlab-ci.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memo" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/memo">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="288">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -237,8 +86,8 @@
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/C_saveRestore.py" />
         <option value="$PROJECT_DIR$/deeplearning/tp20_kerasTensorflowOrga/B_MNIST.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/alea/makefile" />
         <option value="$PROJECT_DIR$/memo" />
+        <option value="$PROJECT_DIR$/alea/makefile" />
       </list>
     </option>
   </component>
@@ -270,6 +119,11 @@
             <path>
               <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
               <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aleaDataSignal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aleaDataSignal" type="462c0819:PsiDirectoryNode" />
+              <item name="alea" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -494,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530002600196</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="3 premier chap de 'alea'">
+      <created>1534153834019</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1534153834019</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -556,7 +417,8 @@
     <MESSAGE value="toto" />
     <MESSAGE value="ajout de l'integration continue" />
     <MESSAGE value="suppression de l'espace dans la fonc de rep" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppression de l'espace dans la fonc de rep" />
+    <MESSAGE value="3 premier chap de 'alea'" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 premier chap de 'alea'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -571,13 +433,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/alea/00-python_de_base.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alea/06-TCL_intervalConfiance_student.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -735,6 +590,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="67" column="20" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="20" />
+          <folding>
+            <element signature="e#183#192#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -847,13 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alea/makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/memo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -865,6 +716,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alea/02-plot.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alea/makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
         </state>
       </provider>
     </entry>
